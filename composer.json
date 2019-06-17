@@ -13,7 +13,8 @@
     "authors": [
         {
             "name": "Mitch Hijlkema",
-            "email": "mitchhijlkema@hotmail.com"
+            "email": "mitchhijlkema@hotmail.com",
+            "role": "Lead Developer"
         }
     ],
     "autoload": {

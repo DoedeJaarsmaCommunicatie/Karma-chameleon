@@ -1,0 +1,30 @@
+<section
+    role="banner"
+    data-role="header-top-bar"
+    data-store="{{ fn('get_current_blog_id') }}"
+    class="bg-primary"
+    id="header_hero_{{ post.ID }}"
+></section>
+
+<nav
+    class="flex"
+    role="navigation"
+    aria-roledescription="Navigeer door de site"
+>
+    <a title="{{ site.title }}" target="_blank">
+        LOGO
+    </a>
+
+    <ul>
+        <li>Home</li>
+    </ul>
+
+    <form role="search" action="/" method="get">
+        <input
+                type="text"
+                id="s"
+                name="s"
+                placeholder="Zoeken naar..."
+        />
+    </form>
+</nav>
