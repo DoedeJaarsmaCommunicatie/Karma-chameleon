@@ -1,18 +1,68 @@
 .homepage-filter[data-v-99156776] {
   background: #ff9934;
+  padding: 15px 10px;
+  text-align: center;
 }
 .homepage-filter .homepage-filter_title[data-v-99156776] {
     color: #ffffff;
     font-weight: bold;
+    margin-bottom: 10px;
 }
 .homepage-filter .homepage-filter_button[data-v-99156776] {
     color: #000000;
     background: #ffffff;
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: all 325ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
+}
+.homepage-filter .homepage-filter_button[data-v-99156776]:hover {
+      background: #000000;
+      color: #ffffff;
 }
 .homepage-filter .custom-input[data-v-99156776] {
     width: 100%;
     background: rgb(255, 163, 72);
     color: #ffffff;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 225ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
+}
+.homepage-filter .custom-input[data-v-99156776]:hover {
+      background: rgb(255, 168, 82);
+}
+.homepage-filter .custom-input .selected[data-v-99156776] {
+      display: block;
+      padding: 10px 0;
+}
+.homepage-filter .custom-input .options[data-v-99156776] {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      padding: 15px 10px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2), 0 13px 16px rgba(0, 0, 0, 0.15);
+      transition: all 225ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
+      transform: scale(1, 0);
+      transform-origin: center top;
+      top: calc(100% + 10px);
+      left: 0;
+      z-index: 10;
+}
+.homepage-filter .custom-input .options.active[data-v-99156776] {
+        opacity: 1;
+        background: rgb(255, 168, 82);
+        transform: scale(1, 1);
+        transform-origin: center top;
+}
+.homepage-filter .custom-input .options .option[data-v-99156776] {
+        margin: 5px 0;
+        border-bottom: 1px solid rgba(255, 153, 52, 0.9);
+}
+.homepage-filter .custom-input .options .option.current[data-v-99156776] {
+          color: rgb(245, 245, 245);
+          cursor: not-allowed;
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
