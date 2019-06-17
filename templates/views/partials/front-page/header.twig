@@ -3,20 +3,22 @@
 <header
         data-title="{{ post.meta('title') }}"
         data-subtitle="{{ post.meta('subtitle') }}"
-        data-background="{{ _headerBackground }}"
         title="{{ post.meta('title') }}"
         class="homepage-header{{ fn('wp_is_mobile')? 'mobile': '' }}"
+
+        style="background-image: url({{ _headerBackground }})"
 >
+    <div class="container mx-auto">
 
-    <h1>{{ post.meta('title') }}</h1>
-    <h3>{{ post.meta('subtitle') }}</h3>
+        <h1 class="title">{{ post.meta('title') }}</h1>
+        <h3 class="subtitle">{{ post.meta('subtitle') }}</h3>
+        <homepage-filter title="Ik ben op zoek naar:"></homepage-filter>
+    </div>
 
-    <homepage-filter title="Ik ben op zoek naar:"></homepage-filter>
+
 
     <aside
             role="complementary"
             class="usp-banner"
-    >
-        Bestel nu.
-    </aside>
+    ></aside>
 </header>

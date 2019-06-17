@@ -693,6 +693,25 @@ video {
   }
 }
 
+@media (min-width: 1024px) {
+  .homepage-header {
+    width: 100vw;
+    color: #ffffff;
+    padding: 20vh;
+    background-size: cover;
+  }
+    .homepage-header .title {
+      font-size: 3rem;
+      font-weight: bold;
+      line-height: 1;
+    }
+    .homepage-header .subtitle {
+      font-size: 1.875rem;
+      margin-bottom: 1.25rem;
+      font-weight: lighter;
+    }
+}
+
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
