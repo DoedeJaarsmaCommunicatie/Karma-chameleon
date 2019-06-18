@@ -17920,6 +17920,7 @@ var HomepageFilter = /** @class */ (function (_super) {
             this.categories[_.findIndex(this.categories, function (c) { return c.active === true; })].active = false;
             category.active = true;
         }
+        this.closeAllLists();
     };
     HomepageFilter.prototype.setActivePrice = function (key) {
         var price = this.prices[key];
@@ -17927,6 +17928,11 @@ var HomepageFilter = /** @class */ (function (_super) {
             this.prices[_.findIndex(this.prices, function (p) { return p.active === true; })].active = false;
             price.active = true;
         }
+        this.closeAllLists();
+    };
+    HomepageFilter.prototype.closeAllLists = function () {
+        this.$refs['categoriesList'].classList.remove('active');
+        this.$refs['pricesList'].classList.remove('active');
     };
     // noinspection JSMethodCanBeStatic
     HomepageFilter.prototype.toggleList = function (ev) {
@@ -18281,7 +18287,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "ul",
-          { staticClass: "options" },
+          { ref: "categoriesList", staticClass: "options" },
           _vm._l(_vm.categories, function(item, key) {
             return _c(
               "li",
@@ -18331,7 +18337,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "ul",
-          { staticClass: "options" },
+          { ref: "pricesList", staticClass: "options" },
           _vm._l(_vm.prices, function(item, key) {
             return _c(
               "li",

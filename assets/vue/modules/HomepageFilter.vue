@@ -7,7 +7,7 @@
                 Een {{ activeCategory.title }}
             </span>
             
-            <ul class="options">
+            <ul class="options" ref="categoriesList">
                 <li
                         v-for="(item, key) in categories"
                         :key="key"
@@ -28,7 +28,7 @@
                 Voor &euro; {{ activePrice.title }}
             </span>
             
-            <ul class="options">
+            <ul class="options" ref="pricesList">
                 <li
                         v-for="(item, key) in prices"
                         :key="key"
@@ -116,6 +116,8 @@
                 this.categories[_.findIndex(this.categories, c => c.active === true)].active = false;
                 category.active = true;
             }
+            
+            this.closeAllLists();
         }
         
         setActivePrice(key: number): void {
@@ -124,7 +126,14 @@
                 this.prices[_.findIndex(this.prices, p => p.active === true)].active = false;
                 price.active = true;
             }
+            this.closeAllLists();
         }
+        
+        closeAllLists(): void {
+            (<HTMLElement>this.$refs['categoriesList']).classList.remove('active');
+            (<HTMLElement>this.$refs['pricesList']).classList.remove('active');
+        }
+        
         // noinspection JSMethodCanBeStatic
         toggleList(ev): void {
             let parent = ev.target.parentElement as HTMLElement;
