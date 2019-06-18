@@ -1,0 +1,9 @@
+{% set _logo = Image(theme.theme_mod('custom_logo')) %}
+<a title="{{ site.title }}" href="{{ site.link }}" target="_self">
+    <img
+            alt="{{ _logo.alt?? site.title }}"
+            src="{{ _logo.src('large') }}"
+            class="custom-logo"
+            title="{{ _logo.title?? site.title }}"
+    />
+</a>

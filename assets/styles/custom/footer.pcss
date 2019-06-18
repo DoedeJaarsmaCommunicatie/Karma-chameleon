@@ -1,0 +1,46 @@
+@screen lg {
+    .footer {
+        & .seo_small {
+            & h4 {
+                font-size: theme('fontSize.xl');
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+        }
+
+        & .seo_large {
+            & h3 {
+                font-size: theme('fontSize.xl');
+                font-weight: 500;
+                margin-bottom: 1.125rem;
+            }
+
+            & p:not(:last-of-type) {
+                margin-bottom: 1rem;
+
+                & a {
+                    color: theme('colors.primary');
+                }
+            }
+        }
+
+        & .addressInfo {
+            font-style: normal;
+
+            & p {
+                font-weight: lighter;
+
+                & a {
+                    font-weight: 500;
+                }
+            }
+        }
+
+        & .menu, .nix-block, .benefits-block {
+            font-weight: 100;
+            & strong {
+                font-weight: 500;
+            }
+        }
+    }
+}

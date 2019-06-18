@@ -10,6 +10,10 @@
 
 namespace App\Providers;
 
+use App\Controllers\Customizer\FooterCustomizerController;
+use App\Controllers\Customizer\FooterListsCustomizerController;
+use App\Controllers\Customizer\SeoCustomizerController;
+use App\Controllers\Customizer\UspCustomizerController;
 use Kirki;
 
 /**
@@ -18,6 +22,8 @@ use Kirki;
  * @package App\Providers
  */
 class CustomizerServiceProvider {
+
+	const CONFIG_ID = 'itww';
 
 	/**
 	 * CustomizerServiceProvider constructor.
@@ -40,7 +46,12 @@ class CustomizerServiceProvider {
 	/**
 	 * Registers the customizer controllers
 	 */
-	public function register(): void {}
+	public function register(): void {
+		new UspCustomizerController();
+		new SeoCustomizerController();
+		new FooterCustomizerController();
+		new FooterListsCustomizerController();
+	}
 
 	/**
 	 * Registers \Kirki::class.
@@ -49,7 +60,7 @@ class CustomizerServiceProvider {
 	 */
 	private function register_namespace(): void {
 		Kirki::add_config(
-			'itww',
+			self::CONFIG_ID,
 			[
 				'capability'  => 'edit_theme_options',
 				'option_type' => 'theme_mod',

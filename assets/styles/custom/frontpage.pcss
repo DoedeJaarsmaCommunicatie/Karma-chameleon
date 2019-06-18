@@ -4,6 +4,7 @@
         color: theme('colors.white');
         padding: 20vh;
         background-size: cover;
+        position: relative;
 
         & .title {
             font-size: theme('fontSize.5xl');
@@ -15,6 +16,20 @@
             font-size: theme('fontSize.3xl');
             margin-bottom: 1.25rem;
             font-weight: lighter;
+        }
+
+        & .usp-banner {
+            position: absolute;
+            width: 100%;
+            top: calc(100% - 60px);
+            left: 0;
+            height: 60px;
+            background: color(theme('colors.primary') a(70%));
+            display: flex;
+            align-content: center;
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
         }
     }
 }

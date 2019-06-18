@@ -5,7 +5,8 @@
         "yahnis-elsts/plugin-update-checker": "^4.6",
         "aristath/kirki": "^3.0",
         "jjgrainger/posttypes": "^2.0",
-        "timber/timber": "^1.10"
+        "timber/timber": "^1.10",
+        "dusank/knapsack": "^10.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"

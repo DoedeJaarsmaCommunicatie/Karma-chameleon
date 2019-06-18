@@ -9,6 +9,8 @@ class ComposerStaticInit52533a13bb798b783a2579a8a3cae72f
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '5d9c5be1aa1fbc12016e2c5bd16bbc70' => __DIR__ . '/..' . '/dusank/knapsack/src/collection_functions.php',
+        'e5fde315a98ded36f9b25eb160f6c9fc' => __DIR__ . '/..' . '/dusank/knapsack/src/utility_functions.php',
         '89ff252b349d4d088742a09c25f5dd74' => __DIR__ . '/..' . '/yahnis-elsts/plugin-update-checker/plugin-update-checker.php',
         '08f7e7c4b41676c816591ec974cedd72' => __DIR__ . '/../..' . '/src/app.php',
     );
@@ -27,6 +29,10 @@ class ComposerStaticInit52533a13bb798b783a2579a8a3cae72f
         'P' => 
         array (
             'PostTypes\\' => 10,
+        ),
+        'D' => 
+        array (
+            'DusanKasan\\Knapsack\\' => 20,
         ),
         'C' => 
         array (
@@ -58,6 +64,10 @@ class ComposerStaticInit52533a13bb798b783a2579a8a3cae72f
         'PostTypes\\' => 
         array (
             0 => __DIR__ . '/..' . '/jjgrainger/posttypes/src',
+        ),
+        'DusanKasan\\Knapsack\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dusank/knapsack/src',
         ),
         'Composer\\Installers\\' => 
         array (
@@ -92,7 +102,15 @@ class ComposerStaticInit52533a13bb798b783a2579a8a3cae72f
 
     public static $classMap = array (
         'AltoRouter' => __DIR__ . '/..' . '/altorouter/altorouter/AltoRouter.php',
+        'App\\Controllers\\Customizer\\Customizer' => __DIR__ . '/../..' . '/src/Controllers/Customizer/Customizer.php',
+        'App\\Controllers\\Customizer\\FooterCustomizerController' => __DIR__ . '/../..' . '/src/Controllers/Customizer/FooterCustomizerController.php',
+        'App\\Controllers\\Customizer\\FooterListsCustomizerController' => __DIR__ . '/../..' . '/src/Controllers/Customizer/FooterListsCustomizerController.php',
+        'App\\Controllers\\Customizer\\GeneralCustomizerController' => __DIR__ . '/../..' . '/src/Controllers/Customizer/GeneralCustomizerController.php',
+        'App\\Controllers\\Customizer\\SeoCustomizerController' => __DIR__ . '/../..' . '/src/Controllers/Customizer/SeoCustomizerController.php',
+        'App\\Controllers\\Customizer\\UspCustomizerController' => __DIR__ . '/../..' . '/src/Controllers/Customizer/UspCustomizerController.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/src/Providers/AppServiceProvider.php',
+        'App\\Providers\\CustomizerServiceProvider' => __DIR__ . '/../..' . '/src/Providers/CustomizerServiceProvider.php',
+        'App\\Providers\\MenuServiceProvider' => __DIR__ . '/../..' . '/src/Providers/MenuServiceProvider.php',
         'Asm89\\Twig\\CacheExtension\\CacheProviderInterface' => __DIR__ . '/..' . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProviderInterface.php',
         'Asm89\\Twig\\CacheExtension\\CacheProvider\\DoctrineCacheAdapter' => __DIR__ . '/..' . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProvider/DoctrineCacheAdapter.php',
         'Asm89\\Twig\\CacheExtension\\CacheProvider\\PsrCacheAdapter' => __DIR__ . '/..' . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProvider/PsrCacheAdapter.php',
@@ -200,6 +218,13 @@ class ComposerStaticInit52533a13bb798b783a2579a8a3cae72f
         'Composer\\Installers\\YawikInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/YawikInstaller.php',
         'Composer\\Installers\\ZendInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ZendInstaller.php',
         'Composer\\Installers\\ZikulaInstaller' => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers/ZikulaInstaller.php',
+        'DusanKasan\\Knapsack\\Collection' => __DIR__ . '/..' . '/dusank/knapsack/src/Collection.php',
+        'DusanKasan\\Knapsack\\CollectionTrait' => __DIR__ . '/..' . '/dusank/knapsack/src/CollectionTrait.php',
+        'DusanKasan\\Knapsack\\Exceptions\\InvalidArgument' => __DIR__ . '/..' . '/dusank/knapsack/src/Exceptions/InvalidArgument.php',
+        'DusanKasan\\Knapsack\\Exceptions\\InvalidReturnValue' => __DIR__ . '/..' . '/dusank/knapsack/src/Exceptions/InvalidReturnValue.php',
+        'DusanKasan\\Knapsack\\Exceptions\\ItemNotFound' => __DIR__ . '/..' . '/dusank/knapsack/src/Exceptions/ItemNotFound.php',
+        'DusanKasan\\Knapsack\\Exceptions\\NoMoreItems' => __DIR__ . '/..' . '/dusank/knapsack/src/Exceptions/NoMoreItems.php',
+        'DusanKasan\\Knapsack\\Exceptions\\RuntimeException' => __DIR__ . '/..' . '/dusank/knapsack/src/Exceptions/RuntimeException.php',
         'PostTypes\\Columns' => __DIR__ . '/..' . '/jjgrainger/posttypes/src/Columns.php',
         'PostTypes\\PostType' => __DIR__ . '/..' . '/jjgrainger/posttypes/src/PostType.php',
         'PostTypes\\Taxonomy' => __DIR__ . '/..' . '/jjgrainger/posttypes/src/Taxonomy.php',
