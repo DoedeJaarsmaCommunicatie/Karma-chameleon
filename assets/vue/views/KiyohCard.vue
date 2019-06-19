@@ -43,7 +43,7 @@
         }
         
         & .kiyoh__speech-bubble {
-            border: 1px solid color(theme('colors.grey') shade(10%));
+            border: 1px solid color(theme('colors.grey'));
             margin-top: 0.5rem;
             border-radius: 5px;
             padding: 0.5rem;

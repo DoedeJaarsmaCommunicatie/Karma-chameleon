@@ -21,7 +21,7 @@ mix.ts('assets/vue/app.ts', 'dist/vue')
                         require('tailwindcss'),
                         require('postcss-nested'),
                         require('postcss-color-function'),
-                        require('postcss-preset-env')({stage: 1})
+                        require('postcss-preset-env')({ stage: 1 })
                 ]
         }
     )

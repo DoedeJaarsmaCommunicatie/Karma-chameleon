@@ -1,5 +1,5 @@
 <template>
-    <card-component class="product_card">
+    <card-component class="product_card" :class="classList" :height="direction === 'horizontal'">
         <a class="product_card-label" v-if="label && product" :href="product.link">{{ label }}</a>
         <figure v-if="product" class="product_card-thumbnail">
             <a :href="product.link">
@@ -19,10 +19,9 @@
             </a>
         </h3>
         
-        <a @click.prevent="addToCart">
+        <button type="button" @click.prevent="addToCart" class="product_card-button">
             <i class="fas fa-shopping-cart"></i>
-        </a>
-        
+        </button>
     </card-component>
 </template>
 
@@ -43,9 +42,14 @@
         @Prop({ default: false })
         label: string|boolean;
         
+        @Prop({default: 'horizontal'})
+        direction: string;
+        
         product?: Product = null;
         
         status?: string = null;
+        
+        classes: Array<string> = [];
         
         async created() {
             this.product = await productModule.fetchProduct(this.productId);
@@ -60,42 +64,103 @@
             
             console.dir(res);
         }
+        
+        get classList(): string {
+            this.classes.push(this.direction);
+            return this.classes.join(' ')
+        }
     }
 </script>
 
 <style scoped>
-    .product_card {
-        padding: 1rem;
-        display: flex;
-        flex-direction: column;
-        position: relative;
+    @screen lg {
+        .product_card {
+            &.horizontal {
+                padding: 1rem;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+    
+
+                & .product_card-thumbnail {
+                    margin-top: 1rem;
+                }
+                
+                & .product_card-title {
+                    text-align: center;
+                }
+                
+                & .product_card-price {
+                    text-align: center;
+                }
+                
+                & .product_card-button {
+                    margin: auto;
+                }
+                
+            }
+            
+            &.vertical {
+                display: grid;
+                position: relative;
+                grid-template-areas: "thumb title" "thumb ." "thumb price" "thumb button";
+                grid-column-gap: 10px;
+                
+                & .product_card-thumbnail {
+                    grid-area: thumb;
+                    
+                    & .product_card-tumbnail_image {
+                        height: 180px;
+                        object-fit: cover;
+                    }
+                }
+                
+                & .product_card-title {
+                    grid-area: title;
+                }
+                
+                & .product_card-price {
+                    grid-area: price;
+                }
+                
+                & .product_card-button {
+                    grid-area: button;
+                    margin-right: auto;
+                }
+            }
+    
+            & .product_card-label {
+                background: theme('colors.green');
+                color: theme('colors.white');
+                position: absolute;
+                top: 15px;
+                right: -3px;
+                padding: 4px 12px;
+            }
+    
+            & .product_card-title {
+                color: theme('colors.black');
+                font-weight: 500;
+                font-size: 1.3rem;
+                margin: 0.75rem 0;
+            }
+            
+            & .product_card-price {
+                color: theme('colors.primary');
+                font-size: 1.25rem;
+                font-weight: 400;
+            }
+            
+            & .product_card-button {
+                background: theme('colors.primary');
+                color: theme('colors.white');
+                border-radius: 5px;
+                padding: 4px 12px;
         
-        & .product_card-label {
-            background: theme('colors.green');
-            color: theme('colors.white');
-            position: absolute;
-            top: 15px;
-            right: -3px;
-            padding: 4px 12px;
-        }
-        
-        & .product_card-title {
-            color: theme('colors.black');
-            font-weight: 500;
-            font-size: 1.3rem;
-            text-align: center;
-            margin: 0.75rem 0;
-        }
-        
-        & .product_card-thumbnail {
-            margin-top: 1rem;
-        }
-        
-        & .product_card-price {
-            color: theme('colors.primary');
-            font-size: 1.25rem;
-            font-weight: 400;
-            text-align: center;
+                &:hover {
+                    background: color-mod(theme('colors.primary'))
+                }
+            }
         }
     }
 </style>

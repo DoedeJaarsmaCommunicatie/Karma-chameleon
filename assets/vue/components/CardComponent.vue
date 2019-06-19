@@ -23,7 +23,9 @@
         
         @Prop({default: false})
         innerButton?: boolean;
-
+        
+        @Prop({default: true})
+        height: boolean;
         
         get classList(): string {
             const classes: Array<string> = [];
@@ -35,6 +37,10 @@
                 classes.push('flex', 'flex-col');
             }
             
+            if (this.height) {
+                classes.push('fix-height');
+            }
+            
             return classes.join(' ');
         }
     }
@@ -44,7 +50,10 @@
 @screen lg {
     .itww-card {
         border: 1px solid theme('colors.grey');
-        min-height: 450px;
+        
+        &.fix-height {
+            min-height: 450px;
+        }
         
         &.is-link {
             border: 2px solid theme('colors.primary');

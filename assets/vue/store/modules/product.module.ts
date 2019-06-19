@@ -26,7 +26,8 @@ export default class ProductModule extends VuexModule {
 
             images: product.images,
             categories: product.categories,
-            attributes: product.attributes
+            attributes: product.attributes,
+            related: product.related,
         };
     }
 
@@ -54,6 +55,8 @@ export interface Product {
 
     content?: string;
 
+
+    related: Array<Product>;
     images?: Array<ProductImage>;
     categories?: Array<ProductCategory>;
     attributes?: Array<ProductAttribute>;
