@@ -47,8 +47,15 @@
         min-height: 450px;
         
         &.is-link {
-            border: 1px solid theme('colors.primary');
+            border: 2px solid theme('colors.primary');
             border-radius: 5px;
+            box-shadow: 0 3px 6px color(theme('colors.black') a(15%)), 0 13px 16px color(theme('colors.black') a(10%));
+            transition: all 225ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
+            
+            &:hover {
+                /*box-shadow: 0 3px 6px color(theme('colors.black') a(7.5%)), 0 13px 16px color(theme('colors.black') a(5%));*/
+                box-shadow: none;
+            }
         }
         
         &.flex {

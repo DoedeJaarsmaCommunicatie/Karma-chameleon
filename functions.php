@@ -1,9 +1,12 @@
 <?php
-include_once get_stylesheet_directory() . '/vendor/aristath/kirki/kirki.php';
-include_once get_stylesheet_directory() . '/vendor/autoload.php';
+require_once get_stylesheet_directory() . '/vendor/aristath/kirki/kirki.php';
+require_once get_stylesheet_directory() . '/vendor/autoload.php';
 
-\Timber\Timber::$locations = get_stylesheet_directory() . '/templates/';
+\Timber\Timber::$locations = [
+	get_stylesheet_directory() . '/templates/',
+	ABSPATH . '/wp-content/templates/karma',
+];
 
-add_theme_support('custom-logo');
-add_theme_support('woocommerce');
-add_theme_support('post-thumbnails');
+add_theme_support( 'custom-logo' );
+add_theme_support( 'woocommerce' );
+add_theme_support( 'post-thumbnails' );

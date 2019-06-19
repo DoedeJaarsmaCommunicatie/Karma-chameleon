@@ -2,14 +2,17 @@
   "compilerOptions": {
     "experimentalDecorators": true,
     "module": "commonjs",
-    "target": "es5",
-    "sourceMap": true
+    "target": "es3",
+    "sourceMap": true,
+    "lib": [
+      "es5"
+    ]
   },
   "exclude": [
     "node_modules",
     "vendor"
   ],
   "include": [
-    "assets/vue/app.ts"
+    "assets/vue/**/*.ts"
   ]
 }
