@@ -92,6 +92,7 @@
             
             & .product-app_thumbnail {
                 grid-area: thumb;
+                max-height: 800px;
             }
             
             & .product-app_content {
