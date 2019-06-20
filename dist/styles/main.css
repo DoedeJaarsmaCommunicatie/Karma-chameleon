@@ -195,6 +195,60 @@
     width: 100%;
 }
 @media (min-width: 1024px) {
+.product-app[data-v-3ef2556a] {
+    display: grid;
+    grid-template-areas: "thumb thumb content content content content content content";
+    grid-template-columns: repeat(8, 1fr);
+}
+.product-app .product-app_thumbnail[data-v-3ef2556a] {
+      grid-area: thumb;
+}
+.product-app .product-app_content[data-v-3ef2556a] {
+      grid-area: content;
+      display: grid;
+      grid-template-areas:
+                    "title title title title title title title title"
+                    "main main main main main aside aside aside";
+      grid-template-columns: repeat(8, 1fr);
+      grid-column-gap: 20px;
+}
+.product-app .product-app_content .product-app_title[data-v-3ef2556a] {
+        grid-area: title;
+        font-size: 1.875rem;
+}
+.product-app .product-app_content .product-app_aside[data-v-3ef2556a] {
+        grid-area: aside;
+}
+.product-app .product-app_content .product-app_main[data-v-3ef2556a] {
+        grid-area: main;
+}
+.product-app .product-app_content .product-app_main .product-app_attributes[data-v-3ef2556a] {
+          background: #F5F5F5;
+          padding: 1rem;
+          margin-bottom: 2rem;
+}
+.product-app .product-app_content .product-app_main .product-app_attributes .product-app_attributes-table[data-v-3ef2556a] {
+            margin-top: 1rem;
+            width: 100%;
+            text-align: left;
+}
+.product-app .product-app_content .product-app_usp[data-v-3ef2556a] {
+        margin-top: 1rem;
+        background: #F5F5F5;
+        padding: 1rem;
+        margin-bottom: 2rem;
+}
+.product-app .product-app_content .product-app_usp .product-app_usp-table[data-v-3ef2556a] {
+          margin-top: 1rem;
+          width: 100%;
+          text-align: left;
+}
+.product-app .product-app_content .product-app_usp .product-app_usp-table th[data-v-3ef2556a] {
+            text-align: center;
+            padding: 0.2rem;
+}
+}
+@media (min-width: 1024px) {
 .product_card.horizontal[data-v-5bdf2a97] {
       padding: 1rem;
       display: flex;
@@ -1025,6 +1079,28 @@ video {
       .footer .menu strong, .footer .nix-block strong, .footer .benefits-block strong {
         font-weight: 500;
       }
+}
+
+@media (min-width: 1024px) {
+    .content h1 {
+      font-size: 1.875rem;
+      margin-bottom: 1rem;
+    }
+    .content h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .content h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .content p {
+      margin-bottom: 1rem;
+    }
+    .content a {
+      color: #ff9934;
+      text-decoration: underline;
+    }
 }
 
 @media (min-width: 1024px) {

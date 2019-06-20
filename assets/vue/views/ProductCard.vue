@@ -30,7 +30,6 @@
     import CardComponent from "../components/CardComponent.vue"
     import { Product, productModule } from '../store/modules/product.module';
     import * as $ from 'jquery';
-    // import axios from 'axios';
     
     @Component( {
         components: { CardComponent }

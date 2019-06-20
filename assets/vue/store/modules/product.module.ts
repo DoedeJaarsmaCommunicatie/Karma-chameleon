@@ -27,7 +27,7 @@ export default class ProductModule extends VuexModule {
             images: product.images,
             categories: product.categories,
             attributes: product.attributes,
-            related: product.related,
+            related: product.related_ids,
         };
     }
 
@@ -35,6 +35,7 @@ export default class ProductModule extends VuexModule {
     async fetchProduct(id: number) {
         const product = (await axios.get(`products/${id}`)).data;
         this.spreadProduct(product);
+        console.log(product);
         return this.product;
     }
 }
