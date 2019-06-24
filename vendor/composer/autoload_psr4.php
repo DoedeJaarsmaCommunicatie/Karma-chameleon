@@ -13,6 +13,7 @@ return array(
     'PostTypes\\' => array($vendorDir . '/jjgrainger/posttypes/src'),
     'DusanKasan\\Knapsack\\' => array($vendorDir . '/dusank/knapsack/src'),
     'Composer\\Installers\\' => array($vendorDir . '/composer/installers/src/Composer/Installers'),
+    'Carbon_Fields\\' => array($vendorDir . '/htmlburger/carbon-fields/core'),
     'App\\' => array($baseDir . '/src'),
     '' => array($vendorDir . '/asm89/twig-cache-extension/lib'),
 );

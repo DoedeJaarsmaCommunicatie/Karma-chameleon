@@ -4,8 +4,7 @@
         data-title="{{ post.meta('title') }}"
         data-subtitle="{{ post.meta('subtitle') }}"
         title="{{ post.meta('title') }}"
-        class="homepage-header{{ fn('wp_is_mobile')? 'mobile': '' }}"
-
+        class="homepage-header {{ fn('wp_is_mobile')? 'mobile': '' }}"
         style="background-image: url({{ _headerBackground.src('large') }})"
 >
     <div class="container mx-auto">

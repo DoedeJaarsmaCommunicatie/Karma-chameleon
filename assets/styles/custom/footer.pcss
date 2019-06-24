@@ -1,14 +1,40 @@
+.footer {
+
+    .seo_small {
+        padding: 1rem;
+        & h4 {
+            font-size: theme('fontSize.xl');
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+        margin-bottom: 1.5rem;
+    }
+
+    & .seo_large {
+        padding: 1rem;
+        & h3 {
+            font-size: theme('fontSize.xl');
+            font-weight: 500;
+            margin-bottom: 1.125rem;
+        }
+
+        & p:not(:last-of-type) {
+            margin-bottom: 1rem;
+
+            & a {
+                color: theme('colors.primary');
+            }
+        }
+    }
+}
 @screen lg {
     .footer {
         & .seo_small {
-            & h4 {
-                font-size: theme('fontSize.xl');
-                font-weight: 500;
-                margin-bottom: 1rem;
-            }
+            padding: 0;
         }
 
         & .seo_large {
+            padding: 0;
             & h3 {
                 font-size: theme('fontSize.xl');
                 font-weight: 500;

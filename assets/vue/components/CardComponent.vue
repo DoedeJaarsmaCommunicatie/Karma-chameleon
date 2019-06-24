@@ -34,7 +34,7 @@
             }
             
             if (this.innerButton) {
-                classes.push('flex', 'flex-col');
+                classes.push('flex', 'lg:flex-col');
             }
             
             if (this.height) {
@@ -47,24 +47,41 @@
 </script>
 
 <style scoped>
+.itww-card {
+    border: 1px solid theme('colors.grey');
+    
+    &.flex {
+        justify-content: space-around;
+        padding: 0.5rem 0;
+    }
+    
+    &.is-link {
+        border: 2px solid theme('colors.primary');
+        border-radius: 5px;
+        box-shadow: 0 3px 6px color(theme('colors.black') a(15%)), 0 13px 16px color(theme('colors.black') a(10%));
+        transition: all 225ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
+        line-height: 1;
+        
+        &:hover {
+            /*box-shadow: 0 3px 6px color(theme('colors.black') a(7.5%)), 0 13px 16px color(theme('colors.black') a(5%));*/
+            box-shadow: none;
+        }
+    }
+    
+    & .innerButton {
+        margin: 0;
+        background: theme('colors.primary');
+        color: theme('colors.white');
+        border-radius: 5px;
+        padding: 4px 12px;
+    }
+}
+
 @screen lg {
     .itww-card {
-        border: 1px solid theme('colors.grey');
         
         &.fix-height {
-            min-height: 450px;
-        }
-        
-        &.is-link {
-            border: 2px solid theme('colors.primary');
-            border-radius: 5px;
-            box-shadow: 0 3px 6px color(theme('colors.black') a(15%)), 0 13px 16px color(theme('colors.black') a(10%));
-            transition: all 225ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
-            
-            &:hover {
-                /*box-shadow: 0 3px 6px color(theme('colors.black') a(7.5%)), 0 13px 16px color(theme('colors.black') a(5%));*/
-                box-shadow: none;
-            }
+            height: 450px;
         }
         
         &.flex {
@@ -75,10 +92,6 @@
         
         & .innerButton {
             margin: 2rem auto 0 auto;
-            background: theme('colors.primary');
-            color: theme('colors.white');
-            border-radius: 5px;
-            padding: 4px 12px;
         }
     }
 }

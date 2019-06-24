@@ -1,21 +1,20 @@
 <section class="bg-grey lg:py-4">
-    <div class="container mx-auto flex">
+    <div class="container mx-auto lg:flex">
         <aside class="lg:w-1/2">
             <shaded-image
-                    image="https://localhost:32918/wp-content/uploads/2019/06/adult-bar-blur-696218-1-1024x683.jpg"
-                    link="https://google.com/"
-                    title="ontdek de 10 populairste wijnen"></shaded-image>
+                    image="https://localhost:32802/wp-content/uploads/2019/06/adult-bar-blur-696218-1-1024x683.jpg"
+                    link="{{ link }}"
+                    title="{{ title?? 'Bekijk meer' }}"></shaded-image>
         </aside>
         <section class="lg:ml-2 lg:w-1/2 lg:flex flex-col">
             <div class="quatro-stagioni">
-                <product-card direction="vertical" class="" :product-id="267"></product-card>
-                <product-card direction="vertical" class="" :product-id="267"></product-card>
-                <product-card direction="vertical" class="" :product-id="267"></product-card>
-                <product-card direction="vertical" class="" :product-id="267"></product-card>
+                {% for post in posts %}
+                    <product-card direction="vertical" class="" :product-id="{{ post.ID }}"></product-card>
+                {% endfor %}
             </div>
-            <card-component tag="a" class="mt-auto block w-full text-center py-2" :height="false">
+            <card-component tag="a" class="mt-auto block w-full text-center py-2" link="{{ link }}" :height="false">
                     <span class="text-xl text-primary text-center font-bold">
-                        Ontdek al onze meest populaire wijnen
+                        {{ title?? "Bekijk meer" }}
                     </span>
             </card-component>
         </section>

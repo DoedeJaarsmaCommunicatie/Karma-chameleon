@@ -1,14 +1,15 @@
-<section class="container mx-auto">
-    <div class="flex justify-between my-4" id="row_top_{{ post.ID }}">
-        {% if post.kiyoh is same as("1") %}
-            <kiyoh-card class="lg:w-1/5"></kiyoh-card>
+<section class="container mx-auto px-4 lg:px-0">
+    <div class="lg:flex lg:justify-between my-4" id="row_top_{{ post.ID }}">
+        {% if kiyoh %}
+            <kiyoh-card class="lg:w-1/5 mb-2"></kiyoh-card>
+            {% for post in posts|slice(0,3) %}
+                <product-card class="lg:w-1/5" :product-id="{{ post.ID }}"></product-card>
+            {% endfor %}
         {% else %}
-            <product-card :product-id="269"></product-card>
+            {% for post in posts %}
+                <product-card class="lg:w-1/5" :product-id="{{ post.ID }}"></product-card>
+            {% endfor %}
         {% endif %}
-
-        <product-card class="lg:w-1/5" :product-id="267"></product-card>
-        <product-card class="lg:w-1/5" :product-id="267" label="Aanbieding"></product-card>
-        <product-card class="lg:w-1/5" :product-id="267"></product-card>
 
         <card-component
                 tag="a"

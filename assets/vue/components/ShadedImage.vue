@@ -50,9 +50,9 @@
             top: 50%;
             left: 50%;
             width: 60%;
-            margin: 0.5rem 2rem;
+            /*margin: 0.5rem 2rem;*/
             transform: translateX(-50%) translateY(-50%);
-            font-size: theme('fontSize.5xl');
+            font-size: theme('fontSize.3xl');
             font-weight: 700;
             color: theme('colors.white');
             text-align: center;
@@ -75,4 +75,13 @@
             }
         }
     }
+    
+    @screen lg {
+        .shaded-image {
+            & .shaded-image_title {
+                font-size: theme('fontSize.5xl');
+            }
+        }
+    }
+
 </style>

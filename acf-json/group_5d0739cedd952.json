@@ -39,73 +39,6 @@
             "prepend": "",
             "append": "",
             "maxlength": ""
-        },
-        {
-            "key": "field_5d09e38578d39",
-            "label": "Kiyoh",
-            "name": "kiyoh",
-            "type": "true_false",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 1,
-            "ui": 0,
-            "ui_on_text": "",
-            "ui_off_text": ""
-        },
-        {
-            "key": "field_5d09e33178d38",
-            "label": "Sale rij",
-            "name": "sale_row",
-            "type": "group",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "layout": "block",
-            "sub_fields": [
-                {
-                    "key": "field_5d09e6f3b486b",
-                    "label": "Type product",
-                    "name": "type_product",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 1,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "sale": "aanbieding",
-                        "witte-wijn": "Witte wijnen",
-                        "rode-wijn": "Rode wijnen",
-                        "rose-wijn": "Rose wijnen",
-                        "mousserende-wijn": "Mousserende wijnen",
-                        "dessert-wijn": "Dessert wijnen"
-                    },
-                    "default_value": [
-                        "sale"
-                    ],
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 1,
-                    "ajax": 0,
-                    "return_format": "value",
-                    "placeholder": ""
-                }
-            ]
         }
     ],
     "location": [
@@ -136,5 +69,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1560930278
+    "modified": 1561123583
 }

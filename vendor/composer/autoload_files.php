@@ -12,4 +12,5 @@ return array(
     'e5fde315a98ded36f9b25eb160f6c9fc' => $vendorDir . '/dusank/knapsack/src/utility_functions.php',
     '89ff252b349d4d088742a09c25f5dd74' => $vendorDir . '/yahnis-elsts/plugin-update-checker/plugin-update-checker.php',
     '08f7e7c4b41676c816591ec974cedd72' => $baseDir . '/src/app.php',
+    '514cb6c4e0879c302132e5486b10f4e2' => $baseDir . '/src/Resources/CustomMeta.php',
 );

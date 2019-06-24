@@ -6,7 +6,8 @@
         "aristath/kirki": "^3.0",
         "jjgrainger/posttypes": "^2.0",
         "timber/timber": "^1.10",
-        "dusank/knapsack": "^10.0"
+        "dusank/knapsack": "^10.0",
+        "htmlburger/carbon-fields": "^3.1"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master"
@@ -23,7 +24,8 @@
             "App\\": "src/"
         },
         "files": [
-            "src/app.php"
+            "src/app.php",
+            "src/Resources/CustomMeta.php"
         ]
     }
 }

@@ -72,6 +72,62 @@
 </script>
 
 <style scoped>
+    .product_card {
+        &.horizontal, &.vertical {
+            display: grid;
+            grid-template-areas: "thumbnail thumbnail title title"
+                                 "thumbnail thumbnail price button";
+            grid-template-columns: 20% 20% 25% 25%;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+    
+            & .product_card-thumbnail {
+                grid-area: thumbnail;
+                & .product_card-tumbnail_image {
+                    height: 180px;
+                    object-fit: cover;
+                    margin: auto;
+                }
+            }
+        }
+        
+        & .product_card-title {
+            color: theme('colors.black');
+            font-weight: 500;
+            font-size: 1.3rem;
+            margin: 0.75rem 0;
+            grid-area: title;
+        }
+        
+        & .product_card-button {
+            background: theme('colors.primary');
+            color: theme('colors.white');
+            border-radius: 5px;
+            padding: 4px 12px;
+            grid-area: button;
+            margin: auto 0 0 auto;
+        
+            &:hover {
+                background: color-mod(theme('colors.primary'))
+            }
+        }
+    
+        & .product_card-label {
+            background: theme('colors.green');
+            color: theme('colors.white');
+            position: absolute;
+            top: 15px;
+            right: -3px;
+            padding: 4px 12px;
+        }
+
+        & .product_card-price {
+            color: theme('colors.primary');
+            font-size: 1.25rem;
+            font-weight: 400;
+        }
+    }
+    
     @screen lg {
         .product_card {
             &.horizontal {
@@ -83,6 +139,11 @@
 
                 & .product_card-thumbnail {
                     margin-top: 1rem;
+                    
+                    & img {
+                        max-height: 180px;
+                        margin: auto;
+                    }
                 }
                 
                 & .product_card-title {
@@ -103,13 +164,14 @@
                 display: grid;
                 position: relative;
                 grid-template-areas: "thumb title" "thumb ." "thumb price" "thumb button";
+                grid-template-columns: unset;
                 grid-column-gap: 10px;
                 
                 & .product_card-thumbnail {
                     grid-area: thumb;
                     
                     & .product_card-tumbnail_image {
-                        height: 180px;
+                        height: 150px;
                         object-fit: cover;
                     }
                 }
@@ -127,39 +189,9 @@
                     margin-right: auto;
                 }
             }
-    
-            & .product_card-label {
-                background: theme('colors.green');
-                color: theme('colors.white');
-                position: absolute;
-                top: 15px;
-                right: -3px;
-                padding: 4px 12px;
-            }
-    
-            & .product_card-title {
-                color: theme('colors.black');
-                font-weight: 500;
-                font-size: 1.3rem;
-                margin: 0.75rem 0;
-            }
             
-            & .product_card-price {
-                color: theme('colors.primary');
-                font-size: 1.25rem;
-                font-weight: 400;
-            }
+
             
-            & .product_card-button {
-                background: theme('colors.primary');
-                color: theme('colors.white');
-                border-radius: 5px;
-                padding: 4px 12px;
-        
-                &:hover {
-                    background: color-mod(theme('colors.primary'))
-                }
-            }
         }
     }
 </style>
