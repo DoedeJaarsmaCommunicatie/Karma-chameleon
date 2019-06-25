@@ -164,7 +164,7 @@
                 display: grid;
                 position: relative;
                 grid-template-areas: "thumb title" "thumb ." "thumb price" "thumb button";
-                grid-template-columns: unset;
+                grid-template-columns: 30% 70%;
                 grid-column-gap: 10px;
                 
                 & .product_card-thumbnail {

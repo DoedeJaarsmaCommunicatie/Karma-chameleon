@@ -98,8 +98,7 @@
             <rect id="_x3C_Slice_x3E_" class="st8" width="45" height="46"/>
 </svg>
         <figcaption class="center-me">
-<!--            {{ grade }}-->
-			9,5
+            {{ grade }}
         </figcaption>
     </figure>
 </template>
@@ -107,6 +106,12 @@
 <script>
     export default {
         name: "KiyohGradeComponent",
+		props: {
+			grade: {
+        		type: String,
+				default: ""
+			}
+		}
     }
 </script>
 

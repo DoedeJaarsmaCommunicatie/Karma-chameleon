@@ -41,9 +41,11 @@
         border-radius: 12px;
         padding: 6px;
         transition: all 325ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
-    
+        display: flex;
+        
         & .search-submit {
             color: theme('colors.primary');
+            margin-left: auto;
         }
         
         & .search-control {

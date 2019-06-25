@@ -17,3 +17,5 @@ add_action(
 		\Carbon_Fields\Carbon_Fields::boot();
 	}
 );
+
+remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );

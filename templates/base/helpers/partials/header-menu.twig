@@ -1,0 +1,30 @@
+<button class="lg:hidden z-40 text-right" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+</button>
+<ul class="menubar" role="menubar">
+    {% for item in primaryMenu.items %}
+        <li role="menuitem" class="menuitem">
+            <a href="{{ item.link }}" title="{{ item.title }}" target="_self">
+                {{ item.title }}
+            </a>
+
+            {% if item.children %}
+                <div class="submenu">
+                    <ul role="menu">
+                        {% for child in item.children %}
+                            <li role="menuitem" class="submenu-item">
+                                <a
+                                        href="{{ child.link }}"
+                                        title="{{ child.title }}"
+                                        target="_self"
+                                >
+                                    {{ child.title }}
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

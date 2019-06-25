@@ -25,3 +25,9 @@ mix.ts('assets/vue/app.ts', 'dist/vue')
                 ]
         }
     )
+
+mix
+    .babel([
+        'assets/scripts/MenuOpener.js',
+        'assets/scripts/FilterOpener.js',
+    ], 'dist/js/main.js');

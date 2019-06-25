@@ -1,18 +1,15 @@
 <template>
     <card-component class="kiyoh-card" tag="section">
         <header class="kiyoh_header">
-            <kiyoh-grade-component></kiyoh-grade-component>
+            <kiyoh-grade-component :grade="kiyoh.score ? kiyoh.score : '9.7'"></kiyoh-grade-component>
             <span>
-                349 Beoordelingen
+                <span v-if="kiyoh">{{ kiyoh.total_reviews }}</span> Beoordelingen
             </span>
         </header>
-        <main class="kiyoh__speech-bubble">
-            Wat je ziet is wat je krijgt.
-            Prima verpakt.
-
-            De wijn was van zeer goede kwaliteit, ik heb deze geschonken op een verjaardagsfeest. Er waren meerdere mensen die vroegen waar wij de wijn vandaan hadden. Bij
+        <main class="kiyoh__speech-bubble" v-if="kiyoh">
+            {{ kiyoh.reviews.pro }}
         </main>
-        <a class="kiyoh__button" href="#">
+        <a class="kiyoh__button" :href="kiyoh.url" v-if="kiyoh">
             kiyoh
         </a>
     </card-component>
@@ -20,11 +17,20 @@
 
 <script lang="ts">
     import { Vue, Component } from 'vue-property-decorator';
-    import CardComponent from "../components/CardComponent.vue"
+    import CardComponent from "../components/CardComponent.vue";
+    import { Kiyoh, kiyohModule } from '../store/modules/kiyoh.module';
+    import TextLoader from './components/TextLoader';
+    
     @Component( {
-        components: { CardComponent }
+        components: { CardComponent, TextLoader }
     } )
-    export default class KiyohCard extends Vue {}
+    export default class KiyohCard extends Vue {
+        kiyoh?: Kiyoh = null;
+        
+        async mounted() {
+            this.kiyoh = await kiyohModule.fetchData();
+        }
+    }
 </script>
 
 <style scoped>

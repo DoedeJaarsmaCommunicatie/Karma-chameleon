@@ -78,6 +78,13 @@
     
     @screen lg {
         .shaded-image {
+            height: 100%;
+            & .shaded-image_image {
+                height: 100%;
+                width: auto;
+                object-fit: cover;
+            }
+            
             & .shaded-image_title {
                 font-size: theme('fontSize.5xl');
             }

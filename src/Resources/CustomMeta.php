@@ -1,57 +1,129 @@
 <?php
 
+use App\Controllers\Posts\Products\Awarded;
+use App\Controllers\Posts\Products\Dessert;
+use App\Controllers\Posts\Products\Mousserend;
+use App\Controllers\Posts\Products\Newest;
+use App\Controllers\Posts\Products\Popular;
+use App\Controllers\Posts\Products\Red;
+use App\Controllers\Posts\Products\Rose;
+use App\Controllers\Posts\Products\Sale;
+use App\Controllers\Posts\Products\White;
 use Carbon_Fields\Block;
 use Carbon_Fields\Field\Field;
+use Timber\Image;
 use Timber\Timber;
+use App\Controllers\Posts\ProductsFactory as Products;
 
+/**
+ * Gets the query args for the current request.
+ *
+ * @param string $type The current request name.
+ *
+ * @return array
+ */
 function get_query_args_gb( $type ) {
 	switch ( $type ) {
 		case 'sale':
-			$args = [
-				'post_type'      => 'product',
-				'posts_per_page' => 4,
-				'post_status'    => 'publish',
-				'meta_query'     => [
-					'relation' => 'OR',
-					[
-						'key'     => '_sale_price',
-						'value'   => 0,
-						'compare' => '>',
-						'type'    => 'numeric',
-					],
-				],
-				'fields'         => 'ids',
-			];
-			break;
-		default:
-			$args = [
-				'post_type'      => 'product',
-				'posts_per_page' => 4,
-				'post_status'    => 'publish',
-				'tax_query'      => [
-					[
-						'taxonomy' => 'product_cat',
-						'field'    => 'slug',
-						'terms'    => $type,
-					],
-				],
-				'fields'         => 'ids',
-			];
-			break;
-
+			/**
+			 * Sale wine model.
+			 *
+			 * @var Sale $products
+			 */
+			$products = Products::create( Sale::class );
+			return $products->boot()->limit()->get_args();
+		case 'popular':
+			/**
+			 * Popular wine model.
+			 *
+			 * @var Popular $products
+			 */
+			$products = Products::create( Popular::class );
+			return $products->boot()->limit()->get_args();
+		case 'rood':
+			/**
+			 * Red wine model.
+			 *
+			 * @var Red $rood
+			 */
+			$rood = Products::create( Red::class );
+			return $rood->boot()->limit()->get_args();
+		case 'wit':
+			/**
+			 * White wine model.
+			 *
+			 * @var White $products
+			 */
+			$products = Products::create( White::class );
+			return $products->boot()->limit()->get_args();
+		case 'rose':
+			/**
+			 * Rose wine model.
+			 *
+			 * @var Rose $products
+			 */
+			$products = Products::create( Rose::class );
+			return $products->boot()->limit()->get_args();
+		case 'dessert':
+			/**
+			 * Dessert wine model.
+			 *
+			 * @var Dessert $products
+			 */
+			$products = Products::create( Dessert::class );
+			return $products->boot()->limit()->get_args();
+		case 'mousserend':
+			/**
+			 * Mousserend wine model.
+			 *
+			 * @var Mousserend $products
+			 */
+			$products = Products::create( Mousserend::class );
+			return $products->boot()->limit()->get_args();
+		case 'new':
+			/**
+			 * Newest wine model.
+			 *
+			 * @var Newest $products
+			 */
+			$products = Products::create( Newest::class );
+			return $products->boot()->limit()->get_args();
+		case 'biologic':
+			/**
+			 * Biological wine model.
+			 *
+			 * @var \App\Controllers\Posts\Products\Biologisch $products
+			 */
+			$products = Products::create( \App\Controllers\Posts\Products\Biologisch::class );
+			return $products->boot()->limit()->get_args();
+		case 'prijswinnaar':
+			/**
+			 * Awarded wine model.
+			 *
+			 * @var Awarded $products
+			 */
+			$products = Products::create( Awarded::class );
+			return $products->boot()->limit()->get_args();
 	}
-
-	return $args;
 }
 
-function get_product_selection() {
+/**
+ * The current available selections.
+ *
+ * @return array
+ */
+function get_product_selection(): array {
 	return [
-		'wit'        => 'Witte wijn',
-		'rood'       => 'Rode wijn',
-		'mousserend' => 'Mousserende wijn',
-		'dessert'    => 'Dessert wijn',
-		'rose'       => 'Rose wijn',
-		'sale'       => 'Uitverkoop',
+		'wit'          => 'Witte wijn',
+		'rood'         => 'Rode wijn',
+		'mousserend'   => 'Mousserende wijn',
+		'dessert'      => 'Dessert wijn',
+		'rose'         => 'Rose wijn',
+		'sale'         => 'Uitverkoop',
+		'popular'      => 'Populaire wijnen',
+		'new'          => 'Nieuwste wijnen',
+		'biologic'     => 'Biologische wijnen',
+		'prijswinnaar' => 'Prijswinnende wijnen',
 	];
 }
 
@@ -70,8 +142,7 @@ add_action(
 				static function ( $fields ) {
 					$context          = Timber::get_context();
 					$context['kiyoh'] = $fields['kiyoh'];
-
-					$context['posts'] = \Timber\Timber::get_posts( get_query_args_gb( $fields['type'] ) );
+					$context['posts'] = Timber::get_posts( get_query_args_gb( $fields['type'] ) );
 
 					return Timber::render( 'views/partials/front-page/sale-row.twig', $context );
 				}
@@ -90,11 +161,11 @@ add_action(
 			->set_render_callback(
 				static function ( $fields ) {
 					$context          = Timber::get_context();
-					$context['image'] = new \Timber\Image( $fields['image'] );
+					$context['image'] = new Image( $fields['image'] );
 					$context['title'] = $fields['title'];
 
-					$context['posts'] = \Timber\Timber::get_posts( get_query_args_gb( $fields['type'] ) );
-					$context['url']   = $fields['link']?? '#';
+					$context['posts'] = Timber::get_posts( get_query_args_gb( $fields['type'] ) );
+					$context['url']   = $fields['link'] ?? '#';
 
 					return Timber::render( 'views/partials/front-page/row-image-left.twig', $context );
 				}
@@ -113,11 +184,11 @@ add_action(
 			->set_render_callback(
 				static function ( $fields ) {
 					$context          = Timber::get_context();
-					$context['image'] = new \Timber\Image( $fields['image'] );
+					$context['image'] = new Image( $fields['image'] );
 					$context['title'] = $fields['title'];
 
-					$context['posts'] = \Timber\Timber::get_posts( get_query_args_gb( $fields['type'] ) );
-					$context['url']   = $fields['link']?? '#';
+					$context['posts'] = Timber::get_posts( get_query_args_gb( $fields['type'] ) );
+					$context['url']   = $fields['link'] ?? '#';
 
 					return Timber::render( 'views/partials/front-page/row-image-right.twig', $context );
 				}

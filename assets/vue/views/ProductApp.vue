@@ -1,12 +1,13 @@
 <template>
     <main>
-        <article :data-id="product.id" v-if="product" class="container mx-auto lg:py-12 product-app">
+        <article :data-id="product.id" v-if="product" class="container lg:mx-auto lg:py-12 product-app">
             <img :src="product.images[0].src" class="product-app_thumbnail">
             <section class="product-app_content">
                 <h1 class="product-app_title mb-4">{{ product.title }}</h1>
                 <main class="product-app_main">
                     <div class="product-app_attributes">
-                        <strong>Kenmerken</strong>
+<!--                        <strong class="product-app_attributes-title" @click="toggleSidebar('attributes')">Kenmerken <span class="mobile">bekijken</span></strong>-->
+                        <strong class="product-app_attributes-title">Kenmerken</strong>
                     
                         <table class="product-app_attributes-table">
                             <tbody>
@@ -23,10 +24,12 @@
                     </div>
                 
                     <div v-html="product.content" class="content"></div>
+                    <span class="mobile clickable" @click="toggleSidebar('content')">Lees meer over deze wijn</span>
                 </main>
                 <aside class="product-app_aside">
                     <h2 class="product-app_price">&euro; {{ product.price }}</h2>
                     <form class="product-app_add-to-card"></form>
+                    <add-to-cart :maximum="product.stock_quantity" :product-id="product.id" v-if="product"></add-to-cart>
                     <div class="product-app_usp">
                         <table class="product-app_usp-table" cellspacing="10">
                             <tbody>
@@ -58,19 +61,46 @@
                 </aside>
             </section>
         </article>
-        <aside v-if="product" class="bg-grey">
-            <div class="container mx-auto flex">
+        <aside v-if="product" class="bg-grey py-8">
+            <div class="container mx-auto">
+                <span class="text-2xl">Gerelateerde producten</span>
+            </div>
+            <div class="container mx-auto lg:flex">
                 <product-card v-for="related in product.related" :key="related" :product-id="related" class="lg:w-1/5"></product-card>
             </div>
         </aside>
+        <div class="full-page-view has-transition" ref="content" v-if="product" @click.self="toggleSidebar('content')">
+            <div class="content" v-html="product.content"></div>
+        </div>
+<!--        <div class="full-page-view has-transition" ref="attributes" v-if="product" @click.self="toggleSidebar('attributes')">-->
+<!--            <div class="content">-->
+<!--                <strong class="title">Kenmerken</strong>-->
+<!--    -->
+<!--                <table class="product-app_attributes-table">-->
+<!--                    <tbody>-->
+<!--                    <tr v-for="attribute in product.attributes" :key="attribute.id">-->
+<!--                        <th>{{ attribute.name }}</th>-->
+<!--                        <td>-->
+<!--                        <span v-for="(option, key) in attribute.options" :key="key">-->
+<!--                            {{option}}-->
+<!--                        </span>-->
+<!--                        </td>-->
+<!--                    </tr>-->
+<!--                    </tbody>-->
+<!--                </table>-->
+<!--            </div>-->
+<!--        </div>-->
     </main>
 </template>
 
 <script lang="ts">
     import { Vue, Component, Prop } from 'vue-property-decorator';
-    import { Product, productModule } from '../store/modules/product.module'
+    import { Product, productModule } from '../store/modules/product.module';
+    import AddToCart from './components/product/AddToCart';
     
-    @Component
+    @Component({
+        components: { AddToCart }
+    })
     export default class ProductApp extends Vue {
         @Prop()
         productId: number;
@@ -80,11 +110,123 @@
         async created() {
             this.product = await productModule.fetchProduct(this.productId);
         }
+        
+        toggleSidebar(name: string) {
+            // @ts-ignore
+            this.$refs[name].classList.toggle('active');
+        }
     }
 </script>
 
 <style scoped>
+    .has-transition {
+        transition: all 255ms cubic-bezier(0.2, 0.4, 0.2, 1.0);
+    }
+    
+    .clickable {
+        color: theme('colors.primary');
+        text-decoration: underline;
+        margin-bottom: 0.75rem;
+        display: block;
+    }
+    
+    @media screen and (max-width: theme('screens.sm')) {
+        .product-app {
+            padding-left: 1rem;
+            padding-right: 1rem;
+            display: grid;
+            grid-template-areas: "thumb content" "thumb content";
+            grid-template-columns: 30% 70%;
+            grid-gap: 20px;
+            
+            max-width: calc( 100% - 20px );
+            
+            & .product-app_thumbnail {
+                grid-area: thumb;
+            }
+            
+            & .product-app_content {
+                grid-area: content;
+        
+                & .product-app_title {
+                    font-size: theme('fontSize.2xl');
+                }
+                
+                & .content {
+                    max-height: 6rem;
+                    overflow: hidden;
+                    position: relative;
+                    margin-bottom: 0.75rem;
+                    
+                    &::after {
+                        content: ' ';
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background: linear-gradient(to bottom, transparent, theme('colors.white'));
+                        top: 0;
+                        left: 0;
+                    }
+                }
+    
+                & .product-app_price {
+                    font-size: theme('fontSize.2xl');
+                }
+                
+                & .product-app_attributes {
+                    background: theme('colors.grey');
+                    padding: 1rem;
+                    margin-bottom: 2rem;
+        
+                    & .product-app_attributes-table {
+                        margin-top: 1rem;
+                        width: 100%;
+                        text-align: left;
+                    }
+        
+                    & .product-app_attributes-title {
+                        color: theme('colors.black');
+                        text-decoration: none;
+                    }
+                }
+            }
+            
+            & .product-app_aside {
+                & .product-app_usp {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .full-page-view {
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        background: color(theme('colors.black') a(10%));
+        transform: scale(0, 1);
+        transform-origin: left;
+        
+        &.active {
+            transform: scale(1);
+        }
+    
+        & .content {
+            width: 75%;
+            height: 100%;
+            background: theme('colors.white');
+            padding: 2rem;
+            overflow-y: scroll;
+        }
+    }
+    
     @screen lg {
+        .mobile {
+            display: none;
+        }
+        
         .product-app {
             display: grid;
             grid-template-areas: "thumb thumb content content content content content content";
@@ -113,6 +255,10 @@
                 
                 & .product-app_aside {
                     grid-area: aside;
+                    
+                    & .product-app_price {
+                        font-size: theme('fontSize.2xl');
+                    }
                 }
                 
                 & .product-app_main {
@@ -128,14 +274,21 @@
                             width: 100%;
                             text-align: left;
                         }
+    
+                        & .product-app_attributes-title {
+                            color: theme('colors.black');
+                            text-decoration: none;
+                        }
                     }
                 }
                 
-                & .product-app_usp {
+                & .product-app_usp
+                {
                     margin-top: 1rem;
                     background: theme('colors.grey');
                     padding: 1rem;
                     margin-bottom: 2rem;
+                    display: block;
                     
                     & .product-app_usp-table {
                         margin-top: 1rem;
@@ -147,6 +300,12 @@
                         }
                     }
                 }
+            }
+        }
+        
+        .full-page-view {
+            &.active {
+                transform: scale(0);
             }
         }
     }

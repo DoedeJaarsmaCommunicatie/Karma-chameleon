@@ -21,6 +21,8 @@
                     {{ item.title }}
                 </li>
             </ul>
+    
+            <input type="hidden" :value="activeCategory.slug" name="product-category">
         </div>
         
         <div class="custom-input">

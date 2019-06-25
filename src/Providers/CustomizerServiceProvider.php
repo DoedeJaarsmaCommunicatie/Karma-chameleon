@@ -13,6 +13,7 @@ namespace App\Providers;
 use App\Controllers\Customizer\FooterCustomizerController;
 use App\Controllers\Customizer\FooterListsCustomizerController;
 use App\Controllers\Customizer\SeoCustomizerController;
+use App\Controllers\Customizer\StoreCustomizerController;
 use App\Controllers\Customizer\UspCustomizerController;
 use Kirki;
 
@@ -51,6 +52,7 @@ class CustomizerServiceProvider {
 		new SeoCustomizerController();
 		new FooterCustomizerController();
 		new FooterListsCustomizerController();
+		new StoreCustomizerController();
 	}
 
 	/**

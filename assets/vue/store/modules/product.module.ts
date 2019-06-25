@@ -3,7 +3,7 @@ import {
     Module, Action, Mutation
 } from "vuex-class-modules";
 import store from "../store";
-import axios from '../../api/shop';
+import shopios from '../../api/shop';
 
 @Module
 export default class ProductModule extends VuexModule {
@@ -17,12 +17,14 @@ export default class ProductModule extends VuexModule {
             price: product.price,
 
             stock_status: product.stock_status,
+            stock_quantity: product.stock_quantity,
 
             slug: product.slug,
             status: product.status,
 
             link: product.permalink,
             content: product.description,
+            short_description: product.short_description,
 
             images: product.images,
             categories: product.categories,
@@ -33,9 +35,8 @@ export default class ProductModule extends VuexModule {
 
     @Action
     async fetchProduct(id: number) {
-        const product = (await axios.get(`products/${id}`)).data;
+        const product = (await shopios.get(`products/${id}`)).data;
         this.spreadProduct(product);
-        console.log(product);
         return this.product;
     }
 }
@@ -49,13 +50,14 @@ export interface Product {
     price?: number;
 
     stock_status?: string;
+    stock_quantity?: number;
 
     slug?: string;
     status?: string;
     link?: string;
 
     content?: string;
-
+    short_description?: string;
 
     related: Array<Product>;
     images?: Array<ProductImage>;
