@@ -1,9 +1,19 @@
 <?php
-namespace App\Controllers\Customizer;
+namespace App\Controllers\Customizer\General;
 
+use App\Controllers\Customizer\General\Customizer;
 use App\Providers\CustomizerServiceProvider;
 
-class GeneralCustomizerController {
+class GeneralCustomizerController extends Customizer {
+
+	protected $panel = [
+		'title'       => 'General',
+		'description' => 'General settings'
+	];
+	
+	protected $panel_name = 'general';
+	
+	protected $panel_priority = 10;
 	
 	/**
 	 * This holds the section data.
@@ -13,16 +23,16 @@ class GeneralCustomizerController {
 	protected $section = [
 		'title'       => 'General Settings',
 		'description' => 'These values are used all over the site.',
+		'panel'       => 'general'
 	];
-	
+
 	/**
 	 * The section name.
 	 *
 	 * @var string $section_name
 	 */
 	protected $section_name = 'general_settings';
-	
-	
+
 	/**
 	 * The basic fields.
 	 *
@@ -72,6 +82,14 @@ class GeneralCustomizerController {
 			'label'    => 'E-mailadres',
 			'section'  => 'general_settings',
 			'default'  => 'info@italiaansewijnwinkel.nl',
+			'priority' => 20,
+		],
+		[
+			'id'       => CustomizerServiceProvider::CONFIG_ID,
+			'type'     => 'color',
+			'settings' => 'theme_color',
+			'label'    => 'Thema kleur',
+			'section'  => 'general_settings',
 			'priority' => 20,
 		],
 	];

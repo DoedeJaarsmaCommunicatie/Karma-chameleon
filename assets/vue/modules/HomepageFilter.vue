@@ -44,6 +44,8 @@
                     {{ item.title }}
                 </li>
             </ul>
+            
+            <input type="hidden" :value="activePrice.slug" name="prijs" />
         </div>
         
         <button

@@ -2,6 +2,33 @@
         role="banner"
         data-role="header-top-bar"
         data-store="{{ fn('get_current_blog_id') }}"
-        class="bg-primary"
+        class="bg-primary header-topper"
         id="header_hero_{{ post.ID }}"
-></section>
+>
+    <div class="container mx-auto lg:flex">
+        <nav role="navigation"></nav>
+
+        <div class="ml-auto">
+            <a href="tel:{{ theme.theme_mod('phone') }}" class="text-white inline-flex items-center">
+                <span class="fa-stack">
+                    <i class="fas fa-circle fa-stack-2x text-white"></i>
+                    <i class="fas fa-phone fa-stack-1x fa-flip-horizontal text-primary"></i>
+                </span> {{ theme.theme_mod('phone') }}
+            </a>
+
+            <a href="#" class="text-white inline-flex items-center">
+                <span class="fa-stack">
+                    <i class="fas fa-circle fa-stack-2x text-white"></i>
+                    <i class="fas fa-user fa-stack-1x fa-flip-horizontal text-primary"></i>
+                </span> {{ __('Mijn Account') }}</a>
+
+            <a href="#" class="text-white inline-flex items-center">
+                <span class="fa-stack">
+                    <i class="fas fa-circle fa-stack-2x text-white"></i>
+                    <i class="fas fa-shopping-cart fa-stack-1x fa-flip-horizontal text-primary"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+
+</section>

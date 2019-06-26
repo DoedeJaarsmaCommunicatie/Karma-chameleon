@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers\Customizer;
+namespace App\Controllers\Customizer\General;
 
 use App\Providers\CustomizerServiceProvider;
 

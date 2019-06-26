@@ -1,5 +1,5 @@
 <?php
-namespace App\Controllers\Customizer;
+namespace App\Controllers\Customizer\General;
 
 use Kirki;
 use DusanKasan\Knapsack\Collection;
@@ -124,7 +124,7 @@ abstract class Customizer {
 
 			Kirki::add_field(
 				$field->get( 'id' ),
-				$field->only( [ 'type', 'settings', 'label', 'section', 'default', 'priority' ] )->toArray()
+				$field->only( [ 'type', 'settings', 'label', 'section', 'default', 'priority', 'description' ] )->toArray()
 			);
 		}
 	}
