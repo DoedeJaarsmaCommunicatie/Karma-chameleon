@@ -6,7 +6,6 @@
                 <h1 class="product-app_title mb-4">{{ product.title }}</h1>
                 <main class="product-app_main">
                     <div class="product-app_attributes">
-<!--                        <strong class="product-app_attributes-title" @click="toggleSidebar('attributes')">Kenmerken <span class="mobile">bekijken</span></strong>-->
                         <strong class="product-app_attributes-title">Kenmerken</strong>
                     
                         <table class="product-app_attributes-table">
@@ -62,7 +61,7 @@
             </section>
         </article>
         <aside v-if="product" class="bg-grey py-8">
-            <div class="container mx-auto">
+            <div class="container mx-auto px-4 lg:px-0">
                 <span class="text-2xl">Gerelateerde producten</span>
             </div>
             <div class="container mx-auto lg:flex">
@@ -72,24 +71,6 @@
         <div class="full-page-view has-transition" ref="content" v-if="product" @click.self="toggleSidebar('content')">
             <div class="content" v-html="product.content"></div>
         </div>
-<!--        <div class="full-page-view has-transition" ref="attributes" v-if="product" @click.self="toggleSidebar('attributes')">-->
-<!--            <div class="content">-->
-<!--                <strong class="title">Kenmerken</strong>-->
-<!--    -->
-<!--                <table class="product-app_attributes-table">-->
-<!--                    <tbody>-->
-<!--                    <tr v-for="attribute in product.attributes" :key="attribute.id">-->
-<!--                        <th>{{ attribute.name }}</th>-->
-<!--                        <td>-->
-<!--                        <span v-for="(option, key) in attribute.options" :key="key">-->
-<!--                            {{option}}-->
-<!--                        </span>-->
-<!--                        </td>-->
-<!--                    </tr>-->
-<!--                    </tbody>-->
-<!--                </table>-->
-<!--            </div>-->
-<!--        </div>-->
     </main>
 </template>
 

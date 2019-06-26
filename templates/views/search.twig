@@ -1,0 +1,13 @@
+{% extends 'base/app.twig' %}
+
+{% block content %}
+    <div class="container mx-auto px-4 lg:px-0">
+        <div class="search-results flex flex-wrap">
+            {% for post in posts %}
+                {% if post.post_type is same as('product') %}
+                    <product-card class="lg:w-1/5" :product-id="{{ post.ID }}"></product-card>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

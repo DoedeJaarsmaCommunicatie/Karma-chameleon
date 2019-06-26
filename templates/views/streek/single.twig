@@ -8,11 +8,11 @@
             </h1>
         </div>
     </div>
-    <div class="container content mx-auto">
+    <div class="container content mx-auto ">
         {{ post.content|wpautop }}
     </div>
 
-    <div class="container mx-auto">
+    <div class="container mx-auto py-12">
         <div class="products">
             {% for product in products %}
                 <product-card :product-id="{{ product }}"></product-card>

@@ -19,3 +19,9 @@ add_action(
 );
 
 remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/DoedeJaarsmaCommunicatie/casadelkiyoh/',
+	__FILE__,
+	'casadelkiyoh'
+);

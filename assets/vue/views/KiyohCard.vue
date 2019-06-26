@@ -1,7 +1,7 @@
 <template>
     <card-component class="kiyoh-card" tag="section">
         <header class="kiyoh_header">
-            <kiyoh-grade-component :grade="kiyoh.score ? kiyoh.score : '9.7'"></kiyoh-grade-component>
+            <kiyoh-grade-component :grade="kiyoh ? kiyoh.score : '9.7'"></kiyoh-grade-component>
             <span>
                 <span v-if="kiyoh">{{ kiyoh.total_reviews }}</span> Beoordelingen
             </span>

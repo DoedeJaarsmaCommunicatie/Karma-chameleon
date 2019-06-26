@@ -10,7 +10,7 @@ export default class KiyohModule extends VuexModule {
     kiyoh?: Kiyoh = null;
 
     @Mutation
-    spreakKiyoh(k: any): void {
+    spreadKiyoh(k: any): void {
         this.kiyoh = {
             score: k.total_score,
             total_reviews: k.total_reviews,
@@ -22,8 +22,7 @@ export default class KiyohModule extends VuexModule {
     @Action
     async fetchData() {
         const k = (await ajaxios.get('?action=fetch_kiyoh')).data.data;
-        this.spreakKiyoh(k);
-        console.dir(k);
+        this.spreadKiyoh(k);
         return this.kiyoh;
     }
 }

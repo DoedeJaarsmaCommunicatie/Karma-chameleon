@@ -2,7 +2,8 @@
     <form class="add-to-cart">
         <div class="add-to-cart_qty-wrapper">
             <button type="button" class="add-to-cart_qty-button minus" @click.prevent="lowerQuantity">-</button>
-            <input type="number" class="add-to-cart_qty" v-model="quantity" >
+            <input type="number" class="add-to-cart_qty" id="qty" v-model="quantity" >
+            <input type="hidden" id="add_to_cart" :value="productId">
             <button type="button" class="add-to-cart_qty-button plus" @click.prevent="higherQuantity">+</button>
         </div>
         <button type="submit" class="add-to-cart_submit" @click.prevent="addToCart">
@@ -53,6 +54,7 @@
     @media screen and (max-width: theme('screens.sm')) {
         .add-to-cart {
             position: fixed;
+            z-index: 30;
             bottom: 0;
             left: 0;
             width: 100vw;

@@ -10,6 +10,8 @@
                 autocomplete="false"
                 ref="searchControl"
         />
+    
+        <input type="hidden" id="post_type" name="post_type" value="product" >
         
         <button
                 type="submit"

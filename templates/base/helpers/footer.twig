@@ -25,8 +25,8 @@
         </section>
     </div>
 
-    <div class="bg-primary text-white py-6">
-        <div role="group" class="container mx-auto flex">
+    <div class="bg-primary text-white py-6 px-4 lg:px-0">
+        <div role="group" class="container mx-auto lg:flex">
             <address class="lg:w-1/4 addressInfo">
                 <strong>Contact</strong>
                 <p>{{ theme.theme_mod('address', 'Lauriergracht 54BG')}}</p>
@@ -34,7 +34,7 @@
                 <p>Telefoon: <a href="tel:{{ theme.theme_mod('phone', '020-2614758') }}">{{ theme.theme_mod('phone', '020-2614758')}}</a></p>
                 <p>Email: <a href="mailto:{{ theme.theme_mod('email', 'info@postwijnen.nl') }}">{{ theme.theme_mod('email', 'info@postwijnen.nl')}}</a></p>
             </address>
-            <nav role="navigation" class="lg:w-1/4 lg:flex flex-col menu">
+            <nav role="navigation" class="lg:w-1/4 flex flex-col menu">
                 <strong>Meer informatie</strong>
                 {% for item in footerMenu.items %}
                     <a

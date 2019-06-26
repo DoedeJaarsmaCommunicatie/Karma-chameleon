@@ -9,9 +9,7 @@
             <div class="product-filter">
 
                 <div class="product-filter_content">
-                    {% filter shortcodes %}
-                        {{ theme.theme_mod('store_filter') }}
-                    {% endfilter %}
+                    {{ theme.theme_mod('store_filter')|shortcodes }}
                 </div>
             </div>
             <div class="lg:w-3/4 products px-4 lg:px-0">

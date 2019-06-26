@@ -22,14 +22,19 @@
         <button type="button" @click.prevent="addToCart" class="product_card-button">
             <i class="fas fa-shopping-cart"></i>
         </button>
+        
+        <section v-if="status === 'success'" class="notify success">
+            {{ product.title }} is toegevoegd aan je winkelmand.
+        </section>
     </card-component>
 </template>
 
 <script lang="ts">
-    import { Vue, Component, Prop } from 'vue-property-decorator';
+    import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
     import CardComponent from "../components/CardComponent.vue"
     import { Product, productModule } from '../store/modules/product.module';
     import * as $ from 'jquery';
+    import { debounce } from 'underscore';
     
     @Component( {
         components: { CardComponent }
@@ -61,7 +66,9 @@
             
             const res = await $.post('?wc-ajax=add_to_cart', data).promise();
             
-            console.dir(res);
+            if (!res.error) {
+                this.status = 'success';
+            }
         }
         
         get classList(): string {
@@ -80,6 +87,8 @@
             grid-template-columns: 20% 20% 25% 25%;
             margin-bottom: 1rem;
             padding: 0.5rem;
+    
+            position: relative;
     
             & .product_card-thumbnail {
                 grid-area: thumbnail;
@@ -128,6 +137,18 @@
         }
     }
     
+    .notify {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0.5rem;
+        
+        &.success {
+            background: theme('colors.primary');
+            color: theme('colors.white');
+        }
+    }
+    
     @screen lg {
         .product_card {
             &.horizontal {
@@ -155,9 +176,8 @@
                 }
                 
                 & .product_card-button {
-                    margin: auto;
+                    margin: auto auto 0;
                 }
-                
             }
             
             &.vertical {
@@ -186,12 +206,8 @@
                 
                 & .product_card-button {
                     grid-area: button;
-                    margin-right: auto;
                 }
             }
-            
-
-            
         }
     }
 </style>

@@ -94,5 +94,6 @@ if ( get_post_type() === 'producent' ) {
 		'views/single.twig',
 		'views/index.twig',
 	],
-	$context
+	$context,
+	600
 );
