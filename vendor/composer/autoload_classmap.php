@@ -28,6 +28,7 @@ return array(
     'App\\Controllers\\Posts\\Products\\Sale' => $baseDir . '/src/Controllers/Posts/Products/Sale.php',
     'App\\Controllers\\Posts\\Products\\White' => $baseDir . '/src/Controllers/Posts/Products/White.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/src/Providers/AppServiceProvider.php',
+    'App\\Providers\\ContentServiceProvider' => $baseDir . '/src/Providers/ContentServiceProvider.php',
     'App\\Providers\\CustomizerServiceProvider' => $baseDir . '/src/Providers/CustomizerServiceProvider.php',
     'App\\Providers\\MenuServiceProvider' => $baseDir . '/src/Providers/MenuServiceProvider.php',
     'Asm89\\Twig\\CacheExtension\\CacheProviderInterface' => $vendorDir . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProviderInterface.php',

@@ -129,6 +129,7 @@ class ComposerStaticInit52533a13bb798b783a2579a8a3cae72f
         'App\\Controllers\\Posts\\Products\\Sale' => __DIR__ . '/../..' . '/src/Controllers/Posts/Products/Sale.php',
         'App\\Controllers\\Posts\\Products\\White' => __DIR__ . '/../..' . '/src/Controllers/Posts/Products/White.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/src/Providers/AppServiceProvider.php',
+        'App\\Providers\\ContentServiceProvider' => __DIR__ . '/../..' . '/src/Providers/ContentServiceProvider.php',
         'App\\Providers\\CustomizerServiceProvider' => __DIR__ . '/../..' . '/src/Providers/CustomizerServiceProvider.php',
         'App\\Providers\\MenuServiceProvider' => __DIR__ . '/../..' . '/src/Providers/MenuServiceProvider.php',
         'Asm89\\Twig\\CacheExtension\\CacheProviderInterface' => __DIR__ . '/..' . '/asm89/twig-cache-extension/lib/Asm89/Twig/CacheExtension/CacheProviderInterface.php',
