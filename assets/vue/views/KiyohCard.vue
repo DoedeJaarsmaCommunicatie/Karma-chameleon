@@ -33,7 +33,7 @@
     }
 </script>
 
-<style scoped>
+<style>
     .kiyoh-card {
         display: flex;
         flex-direction: column;

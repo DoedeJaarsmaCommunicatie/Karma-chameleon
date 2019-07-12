@@ -73,27 +73,27 @@
         categories: Array<Category> = [
             {
                 title: 'Rode wijn',
-                slug: 'rode-wijn',
+                slug: 'rood',
                 active: false,
             },
             {
                 title: 'Witte wijn',
-                slug: 'witte-wijn',
+                slug: 'wit',
                 active: true,
             },
             {
                 title: 'Mousserende wijn',
-                slug: 'mousserende-wijn',
+                slug: 'mousserend',
                 active: false,
             },
             {
                 title: 'Rose wijn',
-                slug: 'rose-wijn',
+                slug: 'rose',
                 active: false,
             },
             {
                 title: 'Dessert wijn',
-                slug: 'dessert-wijn',
+                slug: 'dessert',
                 active: false,
             },
         ];

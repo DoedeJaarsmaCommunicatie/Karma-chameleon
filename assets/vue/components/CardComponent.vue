@@ -46,7 +46,7 @@
     }
 </script>
 
-<style scoped>
+<style>
 .itww-card {
     border: 1px solid theme('colors.grey');
     

@@ -78,7 +78,7 @@
     }
 </script>
 
-<style scoped>
+<style>
     .product_card {
         &.horizontal, &.vertical {
             display: grid;
