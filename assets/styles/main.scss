@@ -1,4 +1,6 @@
+//noinspection CssInvalidAtRule
 @tailwind base;
+//noinspection CssInvalidAtRule
 @tailwind components;
 
 @import "vendors/all",
@@ -9,4 +11,5 @@
         "layout/all",
         "pages/all";
 
+//noinspection CssInvalidAtRule
 @tailwind utilities;

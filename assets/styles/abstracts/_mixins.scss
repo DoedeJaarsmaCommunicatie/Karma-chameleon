@@ -1,0 +1,5 @@
+@mixin box-shadow {
+  box-shadow: 0  3px  6px adjust-color($black, $alpha: decimate(80)),
+              0 13px 16px adjust-color($black, $alpha: decimate(84)),
+              0 23px 26px adjust-color($black, $alpha: decimate(92));
+}

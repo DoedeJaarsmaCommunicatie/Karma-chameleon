@@ -26,3 +26,11 @@ mix.ts('assets/vue/app.ts', 'dist/vue')
     .ts('assets/scripts/Main.ts', 'dist/js/main.js');
 
 
+
+if (!mix.inProduction()) {
+    mix
+        .webpackConfig({
+            devtool: 'inline-source-maps',
+        })
+        .sourceMaps();
+}

@@ -1,8 +1,8 @@
-import MenuOpener from "./common/MenuOpener";
+import NavHandler from "./common/NavHandler";
 
 export default {
     init() {
-        MenuOpener.addEvent();
+        NavHandler();
     },
 
     finalize() {}
