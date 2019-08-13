@@ -97,8 +97,124 @@
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var Router_1 = __webpack_require__(/*! ./utils/Router */ "./assets/scripts/utils/Router.ts");
-var router = new Router_1.default({});
+var common_1 = __webpack_require__(/*! ./routes/common */ "./assets/scripts/routes/common.ts");
+var PostTypeArchiveProduct_1 = __webpack_require__(/*! ./routes/PostTypeArchiveProduct */ "./assets/scripts/routes/PostTypeArchiveProduct.ts");
+var router = new Router_1.default({
+    common: common_1.default,
+    postTypeArchiveProduct: PostTypeArchiveProduct_1.default
+});
 document.addEventListener('DOMContentLoaded', function () { return router.loadEvents(); });
+/*
+TODO: make this function global
+ */
+function toggleMenu() {
+    document
+        .querySelector('.menubar')
+        .classList
+        .toggle('active');
+}
+
+
+/***/ }),
+
+/***/ "./assets/scripts/routes/PostTypeArchiveProduct.ts":
+/*!*********************************************************!*\
+  !*** ./assets/scripts/routes/PostTypeArchiveProduct.ts ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var FilterOpener_1 = __webpack_require__(/*! ./ProductArchive/FilterOpener */ "./assets/scripts/routes/ProductArchive/FilterOpener.ts");
+exports.default = {
+    init: function () {
+        FilterOpener_1.default();
+    },
+    finalize: function () { }
+};
+
+
+/***/ }),
+
+/***/ "./assets/scripts/routes/ProductArchive/FilterOpener.ts":
+/*!**************************************************************!*\
+  !*** ./assets/scripts/routes/ProductArchive/FilterOpener.ts ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = (function () {
+    try {
+        document
+            .querySelector('.filter-opener')
+            .addEventListener('click', function () {
+            document.querySelector('.product-filter').classList.toggle('active');
+        });
+        document
+            .querySelector('.product-filter')
+            .addEventListener('click', function (e) {
+            if (!e.target.classList.contains('product-filter'))
+                return;
+            document.querySelector('.product-filter').classList.remove('active');
+        });
+    }
+    catch (e) {
+        // do nothing
+    }
+});
+
+
+/***/ }),
+
+/***/ "./assets/scripts/routes/common.ts":
+/*!*****************************************!*\
+  !*** ./assets/scripts/routes/common.ts ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var MenuOpener_1 = __webpack_require__(/*! ./common/MenuOpener */ "./assets/scripts/routes/common/MenuOpener.ts");
+exports.default = {
+    init: function () {
+        MenuOpener_1.default.addEvent();
+    },
+    finalize: function () { }
+};
+
+
+/***/ }),
+
+/***/ "./assets/scripts/routes/common/MenuOpener.ts":
+/*!****************************************************!*\
+  !*** ./assets/scripts/routes/common/MenuOpener.ts ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = {
+    addEvent: function () {
+        document.querySelector('.js-open-sites').addEventListener('click', function () {
+            document.querySelector('.sites-wrapper').classList.add('active');
+        });
+        document.querySelector('.sites-wrapper').addEventListener('click', function (e) {
+            if (e.target !== this) {
+                return;
+            }
+            document.querySelector('.sites-wrapper').classList.remove('active');
+        });
+    }
+};
 
 
 /***/ }),
