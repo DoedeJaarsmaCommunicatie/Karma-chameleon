@@ -1,0 +1,57 @@
+// Colors.
+$primary: hsl(30, 100%, 60%) !default;
+$secondary: hsl(111, 28%, 41%) !default;
+
+$orange: hsl(30, 100%, 60%) !default;
+$green: hsl(111, 28%, 41%) !default;
+$white: hsl(0, 0%, 100%) !default;
+$black: hsl(0, 0%, 0%) !default;
+$grey: hsl(0, 0%, 96%) !default;
+
+$colors: () !default;
+
+$colors: map-merge(
+  (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $green,
+    "white": $white,
+    "black": $black,
+    "grey": $grey
+  ),
+  $colors
+);
+
+// Fonts
+$font: 'Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"' !default;
+
+// FontSizes
+$fontSize: () !default;
+
+$fontSize: map-merge(
+    (
+        xs: 0.75rem,
+        base: 1rem,
+        lg: 1.125rem,
+        xl: 1.25rem,
+        2xl: 1.5rem,
+        3xl: 1.875rem,
+        4xl: 2.25rem,
+        5xl: 3rem,
+        6xl: 4rem
+    ),
+  $fontSize
+);
+
+// Screen sizes
+$screenSize: () !default;
+
+$screenSize: map-merge(
+  (
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px
+  ),
+  $screenSize
+);

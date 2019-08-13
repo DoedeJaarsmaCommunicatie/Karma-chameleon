@@ -1,21 +1,19 @@
 const mix = require('laravel-mix');
 
-mix.postCss(
-    'assets/styles/main.pcss',
-    'dist/styles/',
-    [
-        require('postcss-import'),
-        require('tailwindcss'),
-        require('postcss-nested'),
-        require('postcss-color-function'),
-        require('postcss-preset-env')({stage: 1}),
-    ]
-);
+
+mix.sass('assets/styles/main.scss', 'dist/styles')
+    .options({
+        processCssUrls: false,
+        postCss: [
+            require('tailwindcss')('./tailwind.config.js'),
+            require('autoprefixer')
+        ]
+    })
 
 mix.ts('assets/vue/app.ts', 'dist/vue')
     .options(
         {
-                extractVueStyles: true,
+                extractVueStyles: false,
                 postCss: [
                         require('postcss-import'),
                         require('tailwindcss'),
@@ -27,7 +25,9 @@ mix.ts('assets/vue/app.ts', 'dist/vue')
     )
 
 mix
-    .babel([
-        'assets/scripts/MenuOpener.js',
-        'assets/scripts/FilterOpener.js',
-    ], 'dist/js/main.js');
+    .babel(
+        [
+            'assets/scripts/MenuOpener.js',
+            'assets/scripts/FilterOpener.js',
+        ]
+        , 'dist/js/main.js');

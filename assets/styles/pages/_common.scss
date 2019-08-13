@@ -1,0 +1,53 @@
+.content {
+  & h1 {
+    font-size: map-get($fontSize, 3xl);
+    margin-bottom: 1rem;
+  }
+
+  & h2 {
+    font-size: map-get($fontSize, 2xl);
+    margin-bottom: 1rem;
+  }
+
+  & h3 {
+    font-size: map-get($fontSize, xl);
+    margin-bottom: 1rem;
+  }
+
+  & p {
+    margin-bottom: 1rem;
+  }
+
+  & a {
+    color: $primary;
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: map-get($screenSize, lg)) {
+  .content {
+    & h1 {
+      font-size: map-get($fontSize, 3xl);
+      margin-bottom: 1rem;
+    }
+
+    & h2 {
+      font-size: map-get($fontSize, 2xl);
+      margin-bottom: 1rem;
+    }
+
+    & h3 {
+      font-size: map-get($fontSize, xl);
+      margin-bottom: 1rem;
+    }
+
+    & p {
+      margin-bottom: 1rem;
+    }
+
+    & a {
+      color: $primary;
+      text-decoration: underline;
+    }
+  }
+}

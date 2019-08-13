@@ -1,0 +1,73 @@
+.footer {
+
+  .seo_small {
+    padding: 1rem;
+    & h4 {
+      font-size: map-get($fontSize, xl);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    margin-bottom: 1.5rem;
+  }
+
+  & .seo_large {
+    padding: 1rem;
+    & h3 {
+      font-size: map-get($fontSize, xl);
+      font-weight: 500;
+      margin-bottom: 1.125rem;
+    }
+
+    & p:not(:last-of-type) {
+      margin-bottom: 1rem;
+
+      & a {
+        color: $primary;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: map-get($screenSize, lg)) {
+  .footer {
+    & .seo_small {
+      padding: 0;
+    }
+
+    & .seo_large {
+      padding: 0;
+      & h3 {
+        font-size: map-get($fontSize, xl);
+        font-weight: 500;
+        margin-bottom: 1.125rem;
+      }
+
+      & p:not(:last-of-type) {
+        margin-bottom: 1rem;
+
+        & a {
+          color: $primary;
+        }
+      }
+    }
+
+    & .addressInfo {
+      font-style: normal;
+
+      & p {
+        font-weight: lighter;
+
+        & a {
+          font-weight: 500;
+        }
+      }
+    }
+
+    & .menu, .nix-block, .benefits-block {
+      font-weight: 100;
+      & strong {
+        font-weight: 500;
+      }
+    }
+  }
+}

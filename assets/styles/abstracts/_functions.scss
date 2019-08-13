@@ -1,0 +1,3 @@
+@function percentage($number: 100) {
+  @return $number/100 * 1%;
+}
