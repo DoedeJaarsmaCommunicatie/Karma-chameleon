@@ -1,5 +1,5 @@
 {
+    "/dist/js/main.js": "/dist/js/main.js",
     "/dist/vue/app.js": "/dist/vue/app.js",
-    "/dist/styles/main.css": "/dist/styles/main.css",
-    "/dist/js/main.js": "/dist/js/main.js"
+    "/dist/styles/main.css": "/dist/styles/main.css"
 }
