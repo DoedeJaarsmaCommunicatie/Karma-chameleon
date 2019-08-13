@@ -1,5 +1,6 @@
 {
     "name": "elderbraum/targaryen",
+    "license": "MIT",
     "description": "A theme made to be edited",
     "require": {
         "yahnis-elsts/plugin-update-checker": "^4.6",

@@ -13,4 +13,9 @@ $context = \Timber\Timber::get_context();
 $context['query'] = get_search_query();
 $context['posts'] = new Timber\PostQuery();
 
-\Timber\Timber::render( 'views/search.twig', $context );
+\Timber\Timber::render(
+	[
+		'views/search.twig',
+	],
+	$context
+);
