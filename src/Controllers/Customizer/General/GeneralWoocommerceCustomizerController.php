@@ -1,6 +1,7 @@
 <?php
 namespace App\Controllers\Customizer\General;
 
+use App\Controllers\Customizer\Customizer;
 use App\Providers\CustomizerServiceProvider;
 
 class GeneralWoocommerceCustomizerController extends Customizer {

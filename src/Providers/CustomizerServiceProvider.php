@@ -10,13 +10,13 @@
 
 namespace App\Providers;
 
-use App\Controllers\Customizer\General\FooterCustomizerController;
-use App\Controllers\Customizer\General\FooterListsCustomizerController;
+use App\Controllers\Customizer\FooterCustomizerController;
+use App\Controllers\Customizer\FooterListsCustomizerController;
 use App\Controllers\Customizer\General\GeneralCustomizerController;
 use App\Controllers\Customizer\General\GeneralWoocommerceCustomizerController;
-use App\Controllers\Customizer\General\SeoCustomizerController;
-use App\Controllers\Customizer\General\StoreCustomizerController;
-use App\Controllers\Customizer\General\UspCustomizerController;
+use App\Controllers\Customizer\SeoCustomizerController;
+use App\Controllers\Customizer\StoreCustomizerController;
+use App\Controllers\Customizer\UspCustomizerController;
 use Kirki;
 
 /**
@@ -50,11 +50,11 @@ class CustomizerServiceProvider {
 	 * Registers the customizer controllers
 	 */
 	public function register(): void {
+		new StoreCustomizerController();
 		new UspCustomizerController();
 		new SeoCustomizerController();
 		new FooterCustomizerController();
 		new FooterListsCustomizerController();
-		new StoreCustomizerController();
 		new GeneralCustomizerController();
 		new GeneralWoocommerceCustomizerController();
 	}

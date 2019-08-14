@@ -1,20 +1,30 @@
 <?php
 namespace App\Controllers\Customizer\General;
 
-use App\Controllers\Customizer\General\Customizer;
 use App\Providers\CustomizerServiceProvider;
+use App\Controllers\Customizer\Customizer;
 
+/**
+ * Class GeneralCustomizerController
+ *
+ * @package App\Controllers\Customizer\General
+ */
 class GeneralCustomizerController extends Customizer {
 
+	/**
+	 * Holds the panel.
+	 *
+	 * @var array $panel
+	 */
 	protected $panel = [
 		'title'       => 'General',
-		'description' => 'General settings'
+		'description' => 'General settings',
 	];
-	
+
 	protected $panel_name = 'general';
-	
+
 	protected $panel_priority = 10;
-	
+
 	/**
 	 * This holds the section data.
 	 *
@@ -23,7 +33,7 @@ class GeneralCustomizerController extends Customizer {
 	protected $section = [
 		'title'       => 'General Settings',
 		'description' => 'These values are used all over the site.',
-		'panel'       => 'general'
+		'panel'       => 'general',
 	];
 
 	/**

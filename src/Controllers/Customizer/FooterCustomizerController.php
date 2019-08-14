@@ -1,10 +1,11 @@
 <?php
-namespace App\Controllers\Customizer\General;
+namespace App\Controllers\Customizer;
 
 use App\Providers\CustomizerServiceProvider;
 
 /**
  * Class FooterCustomizerController
+ *
  * @package App\Controllers\Customizer
  */
 class FooterCustomizerController extends Customizer {
