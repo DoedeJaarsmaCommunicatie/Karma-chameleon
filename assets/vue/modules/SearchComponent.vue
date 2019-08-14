@@ -37,21 +37,23 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../../styles/abstracts/all";
+    
     .search-form {
-        border: 1px solid theme('colors.primary');
+        border: 1px solid $primary;
         border-radius: 12px;
         padding: 6px;
         transition: all 325ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
         display: flex;
         
         & .search-submit {
-            color: theme('colors.primary');
+            color: $primary;
             margin-left: auto;
         }
         
         & .search-control {
-            color: theme('colors.primary');
+            color: $primary;
             transform: scale(0, 1);
             transform-origin: right center;
             transition: all 325ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
@@ -63,7 +65,7 @@
             }
             
             &::placeholder {
-                color: color(theme('colors.primary') shade(80%));
+                color: adjust-color($primary, $saturation: percentage(20));
                 opacity: 0.4;
             }
         }

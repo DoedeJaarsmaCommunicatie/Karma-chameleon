@@ -15,11 +15,8 @@ mix.ts('assets/vue/app.ts', 'dist/vue')
         {
                 extractVueStyles: false,
                 postCss: [
-                        require('postcss-import'),
-                        require('tailwindcss'),
-                        require('postcss-nested'),
-                        require('postcss-color-function'),
-                        require('postcss-preset-env')({ stage: 1 })
+                    require('tailwindcss')('./tailwind.config.js'),
+                    require('autoprefixer')
                 ]
         }
     )

@@ -33,7 +33,9 @@
     }
 </script>
 
-<style>
+<style scoped lang="scss">
+    @import "../../styles/abstracts/all";
+    
     .kiyoh-card {
         display: flex;
         flex-direction: column;
@@ -49,7 +51,7 @@
         }
         
         & .kiyoh__speech-bubble {
-            border: 1px solid color(theme('colors.grey'));
+            border: 1px solid $grey;
             margin-top: 0.5rem;
             border-radius: 5px;
             padding: 0.5rem;
@@ -58,11 +60,11 @@
         }
         
         & .kiyoh__button {
-            background: color(theme('colors.grey') shade(80%));
+            background: adjust-color($grey, $lightness: percentage(80, true, false));
             padding: 0.25rem 0;
             margin-top: 0.5rem;
             text-align: center;
-            color: theme('colors.white');
+            color: $white;
             width: 100%;
         }
     }

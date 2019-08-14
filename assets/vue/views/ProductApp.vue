@@ -99,19 +99,21 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../../styles/abstracts/all";
+    
     .has-transition {
         transition: all 255ms cubic-bezier(0.2, 0.4, 0.2, 1.0);
     }
     
     .clickable {
-        color: theme('colors.primary');
+        color: $primary;
         text-decoration: underline;
         margin-bottom: 0.75rem;
         display: block;
     }
     
-    @media screen and (max-width: theme('screens.sm')) {
+    @media screen and (max-width: map-get($screenSize, sm)) {
         .product-app {
             padding-left: 1rem;
             padding-right: 1rem;
@@ -130,7 +132,7 @@
                 grid-area: content;
         
                 & .product-app_title {
-                    font-size: theme('fontSize.2xl');
+                    font-size: map-get($fontSize, 2xl);
                 }
                 
                 & .content {
@@ -144,18 +146,18 @@
                         position: absolute;
                         width: 100%;
                         height: 100%;
-                        background: linear-gradient(to bottom, transparent, theme('colors.white'));
+                        background: linear-gradient(to bottom, transparent, $white);
                         top: 0;
                         left: 0;
                     }
                 }
     
                 & .product-app_price {
-                    font-size: theme('fontSize.2xl');
+                    font-size: map-get($fontSize, 2xl);
                 }
                 
                 & .product-app_attributes {
-                    background: theme('colors.grey');
+                    background: $grey;
                     padding: 1rem;
                     margin-bottom: 2rem;
         
@@ -166,7 +168,7 @@
                     }
         
                     & .product-app_attributes-title {
-                        color: theme('colors.black');
+                        color: $black;
                         text-decoration: none;
                     }
                 }
@@ -186,7 +188,7 @@
         top: 0;
         left: 0;
         height: 100vh;
-        background: color(theme('colors.black') a(10%));
+        background: adjust-color($black, $alpha: decimate(10));
         transform: scale(0, 1);
         transform-origin: left;
         
@@ -197,7 +199,7 @@
         & .content {
             width: 75%;
             height: 100%;
-            background: theme('colors.white');
+            background: $white;
             padding: 2rem;
             overflow-y: scroll;
         }
@@ -231,14 +233,14 @@
                 
                 & .product-app_title {
                     grid-area: title;
-                    font-size: theme('fontSize.3xl');
+                    font-size: map-get($fontSize, 3xl);
                 }
                 
                 & .product-app_aside {
                     grid-area: aside;
                     
                     & .product-app_price {
-                        font-size: theme('fontSize.2xl');
+                        font-size: map-get($fontSize, 2xl);
                     }
                 }
                 
@@ -246,7 +248,7 @@
                     grid-area: main;
                     
                     & .product-app_attributes {
-                        background: theme('colors.grey');
+                        background: $grey;
                         padding: 1rem;
                         margin-bottom: 2rem;
                         
@@ -257,7 +259,7 @@
                         }
     
                         & .product-app_attributes-title {
-                            color: theme('colors.black');
+                            color: $black;
                             text-decoration: none;
                         }
                     }
@@ -266,7 +268,7 @@
                 & .product-app_usp
                 {
                     margin-top: 1rem;
-                    background: theme('colors.grey');
+                    background: $grey;
                     padding: 1rem;
                     margin-bottom: 2rem;
                     display: block;

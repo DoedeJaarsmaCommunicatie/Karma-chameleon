@@ -78,7 +78,8 @@
     }
 </script>
 
-<style>
+<style lang="scss" scoped>
+    @import "../../styles/abstracts/all";
     .product_card {
         &.horizontal, &.vertical {
             display: grid;
@@ -101,7 +102,7 @@
         }
         
         & .product_card-title {
-            color: theme('colors.black');
+            color: $black;
             font-weight: 500;
             font-size: 1.3rem;
             margin: 0.75rem 0;
@@ -109,21 +110,21 @@
         }
         
         & .product_card-button {
-            background: theme('colors.primary');
-            color: theme('colors.white');
+            background: $primary;
+            color: $white;
             border-radius: 5px;
             padding: 4px 12px;
             grid-area: button;
             margin: auto 0 0 auto;
         
             &:hover {
-                background: color-mod(theme('colors.primary'))
+                background: $primary;
             }
         }
     
         & .product_card-label {
-            background: theme('colors.green');
-            color: theme('colors.white');
+            background: $green;
+            color: $white;
             position: absolute;
             top: 15px;
             right: -3px;
@@ -131,7 +132,7 @@
         }
 
         & .product_card-price {
-            color: theme('colors.primary');
+            color: $primary;
             font-size: 1.25rem;
             font-weight: 400;
         }
@@ -144,12 +145,12 @@
         padding: 0.5rem;
         
         &.success {
-            background: theme('colors.primary');
-            color: theme('colors.white');
+            background: $primary;
+            color: $white;
         }
     }
     
-    @screen lg {
+    @media screen and (min-width: map-get($fontSize, lg)) {
         .product_card {
             &.horizontal {
                 padding: 1rem;

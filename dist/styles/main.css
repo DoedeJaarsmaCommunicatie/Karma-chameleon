@@ -4871,12 +4871,12 @@ body.admin-bar .header .menubar {
 }
 
 .break-normal {
-  word-wrap: normal;
+  overflow-wrap: normal;
   word-break: normal;
 }
 
 .break-words {
-  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .break-all {
@@ -8910,12 +8910,12 @@ body.admin-bar .header .menubar {
   }
 
   .sm\:break-normal {
-    word-wrap: normal;
+    overflow-wrap: normal;
     word-break: normal;
   }
 
   .sm\:break-words {
-    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .sm\:break-all {
@@ -12950,12 +12950,12 @@ body.admin-bar .header .menubar {
   }
 
   .md\:break-normal {
-    word-wrap: normal;
+    overflow-wrap: normal;
     word-break: normal;
   }
 
   .md\:break-words {
-    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .md\:break-all {
@@ -16990,12 +16990,12 @@ body.admin-bar .header .menubar {
   }
 
   .lg\:break-normal {
-    word-wrap: normal;
+    overflow-wrap: normal;
     word-break: normal;
   }
 
   .lg\:break-words {
-    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .lg\:break-all {
@@ -21030,12 +21030,12 @@ body.admin-bar .header .menubar {
   }
 
   .xl\:break-normal {
-    word-wrap: normal;
+    overflow-wrap: normal;
     word-break: normal;
   }
 
   .xl\:break-words {
-    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .xl\:break-all {
