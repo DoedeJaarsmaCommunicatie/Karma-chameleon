@@ -4,9 +4,9 @@
 
 <script lang="ts">
     import { Vue, Component } from 'vue-property-decorator';
-    
+
     @Component
-    export default class TextLoader extends Vue {}
+    export default class ImageLoader extends Vue {}
 </script>
 
 <style scoped lang="scss">
@@ -30,9 +30,11 @@
         background: #f6f7f8;
         background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
         background-size: 800px 104px;
-        height: 2rem;
-        width: 100%;
+        height: 200px;
+        width: 50%;
         display: block;
+        margin-left: auto;
+        margin-right: auto;
         position: relative;
     }
 </style>

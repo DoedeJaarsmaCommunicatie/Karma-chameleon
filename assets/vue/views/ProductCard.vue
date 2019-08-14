@@ -1,22 +1,25 @@
 <template>
     <card-component class="product_card" :class="classList" :height="direction === 'horizontal'">
         <a class="product_card-label" v-if="label && product" :href="product.link">{{ label }}</a>
-        <figure v-if="product" class="product_card-thumbnail">
-            <a :href="product.link">
+        <figure  class="product_card-thumbnail">
+            <a :href="product.link" v-if="product">
                 <img :src="product.images[0].src" :alt="product.images[0].alt" class="product_card-tumbnail_image">
             </a>
+            <image-loader v-else></image-loader>
         </figure>
         
-        <h2 v-if="product" class="product_card-title">
-            <a :href="product.link">
+        <h2 class="product_card-title">
+            <a :href="product.link" v-if="product && product.title">
                 {{ product.title }}
             </a>
+            <text-loader v-else></text-loader>
         </h2>
         
-        <h3 class="product_card-price" v-if="product">
-            <a :href="product.link">
+        <h3 class="product_card-price" >
+            <a :href="product.link" v-if="product && product.title">
                 &euro; <span>{{ product.price }}</span>
             </a>
+            <text-loader v-else></text-loader>
         </h3>
         
         <button type="button" @click.prevent="addToCart" class="product_card-button">
@@ -35,9 +38,11 @@
     import { Product, productModule } from '../store/modules/product.module';
     import * as $ from 'jquery';
     import { debounce } from 'underscore';
+    import TextLoader from "./components/TextLoader.vue"
+    import ImageLoader from "./components/ImageLoader.vue"
     
     @Component( {
-        components: { CardComponent }
+        components: { ImageLoader, TextLoader, CardComponent }
     } )
     export default class ProductCard extends Vue {
         @Prop({required: true})
