@@ -1,14 +1,20 @@
 <template>
     <main>
-        <article :data-id="product.id" v-if="product" class="container lg:mx-auto lg:py-12 product-app">
-            <img :src="product.images[0].src" class="product-app_thumbnail">
+        <article  class="container lg:mx-auto lg:py-12 product-app">
+            <img :src="product.images[0].src" class="product-app_thumbnail" v-if="product">
+            <image-loader v-else height="lg" :class="'product-app_thumbnail'"></image-loader>
             <section class="product-app_content">
-                <h1 class="product-app_title mb-4">{{ product.title }}</h1>
+                <h1 class="product-app_title mb-4">
+                    <span v-if="product">
+                        {{ product.title }}
+                    </span>
+                    <text-loader v-else></text-loader>
+                </h1>
                 <main class="product-app_main">
                     <div class="product-app_attributes">
                         <strong class="product-app_attributes-title">Kenmerken</strong>
                     
-                        <table class="product-app_attributes-table">
+                        <table class="product-app_attributes-table" v-if="product">
                             <tbody>
                             <tr v-for="attribute in product.attributes" :key="attribute.id">
                                 <th>{{ attribute.name }}</th>
@@ -20,15 +26,26 @@
                             </tr>
                             </tbody>
                         </table>
+                        <table class="product-app_attributes-table" v-else>
+                            <tbody>
+                                <tr>
+                                    <th><text-loader height="md"></text-loader></th>
+                                    <td><text-loader height="md"></text-loader></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 
-                    <div v-html="product.content" class="content"></div>
+                    <div v-if="product" v-html="product.content" class="content"></div>
                     <span class="mobile clickable" @click="toggleSidebar('content')">Lees meer over deze wijn</span>
                 </main>
                 <aside class="product-app_aside">
-                    <h2 class="product-app_price">&euro; {{ product.price }}</h2>
-                    <form class="product-app_add-to-card"></form>
+                    <h2 class="product-app_price">
+                        <span v-if="product">&euro; {{ product.price }}</span>
+                        <text-loader height="md" v-else></text-loader>
+                    </h2>
                     <add-to-cart :maximum="product.stock_quantity" :product-id="product.id" v-if="product"></add-to-cart>
+                    <text-loader v-else></text-loader>
                     <div class="product-app_usp">
                         <table class="product-app_usp-table" cellspacing="10">
                             <tbody>
@@ -78,9 +95,11 @@
     import { Vue, Component, Prop } from 'vue-property-decorator';
     import { Product, productModule } from '../store/modules/product.module';
     import AddToCart from './components/product/AddToCart';
+    import TextLoader from "./components/TextLoader.vue"
+    import ImageLoader from "./components/ImageLoader.vue"
     
     @Component({
-        components: { AddToCart }
+        components: { ImageLoader, TextLoader, AddToCart }
     })
     export default class ProductApp extends Vue {
         @Prop()
