@@ -50,18 +50,19 @@
     }
 </script>
 
-<style scoped>
-    @media screen and (max-width: theme('screens.sm')) {
+<style scoped lang="scss">
+    @import "../../../../styles/abstracts/all";
+    
+    @media screen and (max-width: map-get($screenSize, sm)) {
         .add-to-cart {
             position: fixed;
             z-index: 30;
             bottom: 0;
             left: 0;
             width: 100vw;
-            background: theme('colors.white');
+            background: $white;
             padding: 1rem;
-            box-shadow: 0 -3px 6px color(theme('colors.black') a(15%)),
-                        0 -13px 16px color(theme('colors.black') a(10%));
+            @include box-shadow;
         }
     }
     
@@ -73,8 +74,8 @@
             display: flex;
             
             & .add-to-cart_qty-button {
-                background: theme('colors.primary');
-                color: theme('colors.white');
+                background: $primary;
+                color: $white;
                 padding: 0.25rem 1rem;
                 
                 &.minus {
@@ -88,7 +89,7 @@
                 }
                 
                 &:hover {
-                    background: color(theme('colors.primary') shade(5%));
+                    background: adjust-color($primary, $saturation: decimate(5));
                 }
             }
         }
@@ -96,14 +97,14 @@
         & .add-to-cart_qty {
             appearance: textfield;
             text-align: center;
-            border-top: 1px solid theme('colors.primary');
-            border-bottom: 1px solid theme('colors.primary');
+            border-top: 1px solid $primary;
+            border-bottom: 1px solid $primary;
             max-width: 4rem;
         }
         
         & .add-to-cart_submit {
-            background: theme('colors.green');
-            color: theme('colors.white');
+            background: $green;
+            color: $white;
             border-radius: 5px;
             padding: 0.5rem 1rem;
             text-align: center;
