@@ -33,60 +33,61 @@
                 this.classList.push('animated')
             }
             
-            
             return this.classList.join(' ');
         }
     }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+    @import "../../styles/abstracts/all";
+    
     .shaded-image {
-        box-shadow: 0 3px 6px color(theme('colors.black') a(15%)), 0 13px 16px color(theme('colors.black') a(10%));
         transition: all 225ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
         position: relative;
-        
         & .shaded-image_title {
             position: absolute;
             top: 50%;
             left: 50%;
             width: 60%;
-            /*margin: 0.5rem 2rem;*/
             transform: translateX(-50%) translateY(-50%);
-            font-size: theme('fontSize.3xl');
+            font-size: map-get($fontSize, 3xl);
             font-weight: 700;
-            color: theme('colors.white');
+            color: $white;
             text-align: center;
-            border: 2px solid theme('colors.white');
+            border: 2px solid $white;
             border-radius: 5px;
-            box-shadow: 0 3px 6px color(theme('colors.black') a(15%)), 0 13px 16px color(theme('colors.black') a(10%));
             transition: all 225ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
-            text-shadow: 1px 1px color(theme('colors.black') a(20%));
+            text-shadow: 1px 1px adjust-color($black, $alpha: decimate(20));
             line-height: 1.2;
+            
+            @include box-shadow;
         }
-        
+    
         &.animated {
             &:hover{
-                box-shadow: 0 3px 6px color(theme('colors.black') a(25%)), 0 13px 16px color(theme('colors.black') a(15%));
+                box-shadow: none;
                 
                 & .shaded-image_title {
-                    border-color: color(theme('colors.primary') blend(theme('colors.white') 60%));
+                    border-color: mix($primary, $white, percentage(60));
                     transform: scale(1.1) translateX(-45%) translateY(-45%);
                 }
             }
         }
+        @include box-shadow;
     }
     
-    @screen lg {
+    @media screen and (min-width: map-get($screenSize, lg)) {
         .shaded-image {
             height: 100%;
             & .shaded-image_image {
                 height: 100%;
                 width: auto;
                 object-fit: cover;
+                max-height: 550px;
             }
             
             & .shaded-image_title {
-                font-size: theme('fontSize.5xl');
+                font-size: map-get($fontSize, 5xl);
             }
         }
     }

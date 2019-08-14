@@ -1,6 +1,7 @@
 <?php
-
+// TODO: Make this cleaner and split up to multiple files.
 use App\Controllers\Posts\Products\Awarded;
+use App\Controllers\Posts\Products\Biologisch;
 use App\Controllers\Posts\Products\Dessert;
 use App\Controllers\Posts\Products\Mousserend;
 use App\Controllers\Posts\Products\Newest;
@@ -92,9 +93,9 @@ function get_query_args_gb( $type ) {
 			/**
 			 * Biological wine model.
 			 *
-			 * @var \App\Controllers\Posts\Products\Biologisch $products
+			 * @var Biologisch $products
 			 */
-			$products = Products::create( \App\Controllers\Posts\Products\Biologisch::class );
+			$products = Products::create( Biologisch::class );
 			return $products->boot()->limit()->get_args();
 		case 'prijswinnaar':
 			/**
@@ -165,7 +166,7 @@ add_action(
 					$context['title'] = $fields['title'];
 
 					$context['posts'] = Timber::get_posts( get_query_args_gb( $fields['type'] ) );
-					$context['url']   = $fields['link'] ?? '#';
+					$context['link']  = $fields['link'] ?? '#';
 
 					return Timber::render( 'views/partials/front-page/row-image-left.twig', $context );
 				}
@@ -188,7 +189,7 @@ add_action(
 					$context['title'] = $fields['title'];
 
 					$context['posts'] = Timber::get_posts( get_query_args_gb( $fields['type'] ) );
-					$context['url']   = $fields['link'] ?? '#';
+					$context['link']  = $fields['link'] ?? '#';
 
 					return Timber::render( 'views/partials/front-page/row-image-right.twig', $context );
 				}
