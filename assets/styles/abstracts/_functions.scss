@@ -1,5 +1,24 @@
-@function percentage($number: 100) {
-  @return $number/100 * 1%;
+@function percentage($number: 100, $negative: false, $absolute: true ) {
+  @if $negative {
+    @if $number < 0 {
+      @return $number * 1%;
+    }
+    @else {
+      @return $number * -1%;
+    }
+  }
+
+  @if $absolute {
+    @return abs($number) * 1%;
+  }
+
+  @if unitless($number) {
+    @return $number * 1%;
+  }
+
+  @if unit($number) != '%' {
+    @error "Wrong unit supplied"
+  }
 }
 
 @function decimate($number: 100, $negative: true, $absolute: false) {

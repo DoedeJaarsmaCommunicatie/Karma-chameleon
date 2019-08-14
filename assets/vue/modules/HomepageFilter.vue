@@ -160,36 +160,38 @@
     }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+    @import "../../styles/abstracts/all";
+    
     .homepage-filter {
-        background: theme('colors.primary');
+        background: $primary;
         padding: 15px 10px;
         text-align: center;
         
         & .homepage-filter_title {
-            color: theme('colors.white');
+            color: $white;
             font-weight: bold;
             margin-bottom: 10px;
         }
         
         & .homepage-filter_button {
-            color: theme('colors.black');
-            background: theme('colors.white');
+            color: $black;
+            background: $white;
             width: 100%;
             padding: 10px 0;
             cursor: pointer;
             transition: all 325ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
     
             &:hover {
-                background: theme('colors.black');
-                color: theme('colors.white');
+                background: $black;
+                color: $white;
             }
         }
         
         & .custom-input {
             width: 100%;
-            background: color(theme('colors.primary') blend(theme('colors.white') 10%));
-            color: theme('colors.white');
+            background: mix($primary, $white, percentage(90));
+            color: $white;
             position: relative;
             text-align: center;
             cursor: pointer;
@@ -197,7 +199,7 @@
             transition: all 225ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
             
             &:hover {
-                background: color(theme('colors.primary') blend(theme('colors.white') 15%));
+                background: mix($primary, $white, percentage(85));
             }
             
             
@@ -211,7 +213,6 @@
                 width: 100%;
                 opacity: 0;
                 padding: 15px 10px;
-                box-shadow: 0 3px 6px color(theme('colors.black') a(20%)), 0 13px 16px color(theme('colors.black') a(15%));
                 transition: all 225ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
                 transform: scale(1, 0);
                 transform-origin: center top;
@@ -221,7 +222,7 @@
                 
                 &.active {
                     opacity: 1;
-                    background: color(theme('colors.primary') blend(theme('colors.white') 15%));
+                    background: mix($primary, $white, percentage(85));
                     transform: scale(1, 1);
                     transform-origin: center top;
     
@@ -229,13 +230,15 @@
                 
                 & .option {
                     margin: 5px 0;
-                    border-bottom: 1px solid color(theme('colors.primary') a(90%));
+                    border-bottom: 1px solid adjust-color($primary, $alpha: decimate(10));
                     
                     &.current {
-                        color: color(theme('colors.grey'));
+                        color: $grey;
                         cursor: not-allowed;
                     }
                 }
+                
+                @include box-shadow;
             }
         }
     }

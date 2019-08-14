@@ -46,9 +46,11 @@
     }
 </script>
 
-<style>
+<style scoped lang="scss">
+@import "../../styles/abstracts/all";
+
 .itww-card {
-    border: 1px solid theme('colors.grey');
+    border: 1px solid $grey;
     
     &.flex {
         justify-content: space-around;
@@ -56,28 +58,28 @@
     }
     
     &.is-link {
-        border: 2px solid theme('colors.primary');
+        border: 2px solid $primary;
         border-radius: 5px;
-        box-shadow: 0 3px 6px color(theme('colors.black') a(15%)), 0 13px 16px color(theme('colors.black') a(10%));
         transition: all 225ms cubic-bezier(0.2, 0.4, 0.0, 0.8);
         line-height: 1;
         
         &:hover {
-            /*box-shadow: 0 3px 6px color(theme('colors.black') a(7.5%)), 0 13px 16px color(theme('colors.black') a(5%));*/
             box-shadow: none;
         }
+        
+        @include box-shadow;
     }
     
     & .innerButton {
         margin: 0;
-        background: theme('colors.primary');
-        color: theme('colors.white');
+        background: $primary;
+        color: $white;
         border-radius: 5px;
         padding: 4px 12px;
     }
 }
 
-@screen lg {
+@media screen and (min-width: map-get($screenSize, lg)) {
     .itww-card {
         
         &.fix-height {

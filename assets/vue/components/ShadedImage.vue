@@ -81,7 +81,7 @@
             height: 100%;
             & .shaded-image_image {
                 height: 100%;
-                width: auto;
+                width: 100%;
                 object-fit: cover;
                 max-height: 550px;
             }
