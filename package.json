@@ -19,7 +19,7 @@
     "css-loader": "^3.2.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "laravel-mix": "^4.1.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "postcss-color-function": "^4.1.0",
     "postcss-color-mod-function": "^3.0.3",
     "postcss-import": "^12.0.1",
